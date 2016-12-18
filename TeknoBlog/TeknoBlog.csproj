@@ -191,6 +191,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="Admin\Web.config" />
     <Content Include="AdminMaster.master" />
+    <None Include="Properties\PublishProfiles\teknoblog - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
