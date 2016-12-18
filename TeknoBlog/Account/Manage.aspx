@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="TeknoBlog.Account.Manage" %>
+﻿<%@ Page Title="Hesabınızı Yönetin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="TeknoBlog.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-horizontal">
-                <h4>Change your account settings</h4>
+                <h4>Hesap ayarlarınızı değiştirin.</h4>
                 <hr />
                 <dl class="dl-horizontal">
                     <dt>Password:</dt>
