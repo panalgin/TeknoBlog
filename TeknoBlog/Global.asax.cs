@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using TeknoBlog.Logic;
 
 namespace TeknoBlog
 {
@@ -16,6 +17,9 @@ namespace TeknoBlog
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            RoleActions m_Actions = new RoleActions();
+            m_Actions.InitializeRoles();
         }
     }
 }
