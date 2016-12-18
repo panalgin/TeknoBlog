@@ -10,7 +10,7 @@ namespace TeknoBlog.Logic
 {
     internal class RoleActions
     {
-        internal void InitializeRoles()
+        internal void Initialize()
         {
             // Access the application context and create result variables.
             ApplicationDbContext context = new ApplicationDbContext();
@@ -25,20 +25,12 @@ namespace TeknoBlog.Logic
             // When creating the RoleManager object, you pass in (as a parameter) a new RoleStore object. 
             var roleMgr = new RoleManager<IdentityRole>(roleStore);
 
-            // Then, you create the "canEdit" role if it doesn't already exist.
             if (!roleMgr.RoleExists("Administrator"))
             {
                 IdRoleResult = roleMgr.Create(new IdentityRole { Name = "Administrator" });
             }
 
-            // Create a UserManager object based on the UserStore object and the ApplicationDbContext  
-            // object. Note that you can create new objects and use them as parameters in
-            // a single line of code, rather than using multiple lines of code, as you did
-            // for the RoleManager object.
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
-            // If the new "canEdit" user was successfully created, 
-            // add the "canEdit" user to the "canEdit" role. 
 
             ApplicationUser m_Admin = userMgr.Users.FirstOrDefault();
 

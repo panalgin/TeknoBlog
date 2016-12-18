@@ -19,7 +19,7 @@ namespace TeknoBlog
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             RoleActions m_Actions = new RoleActions();
-            m_Actions.InitializeRoles();
+            m_Actions.Initialize();
         }
     }
 }
