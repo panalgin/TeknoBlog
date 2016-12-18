@@ -117,3 +117,6 @@ input[type="select"] {
     box-sizing: border-box;
     padding: 10px;
 }
+
+.bxslider { list-style-type: none; float: left; display: block; width: 100%; height: 325px; clear: both; }
+.bxslider li img { display: none; }
