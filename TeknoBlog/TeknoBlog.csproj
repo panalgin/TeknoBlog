@@ -216,6 +216,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\teknoblog - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TeknoBlog-WEU - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TeknoBlog-WEU.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

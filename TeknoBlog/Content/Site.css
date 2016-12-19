@@ -43,7 +43,7 @@ input[type="select"] {
 }
 
 .navbar-nav li a, .navbar-nav li a:visited {
-    color: #000;
+    color: #000 !important;
 }
 
     .navbar-nav li a:hover, .navbar-nav li:focus {
