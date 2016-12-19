@@ -10,15 +10,24 @@
 namespace TeknoBlog {
     
     
-    public partial class _Default {
+    public partial class View {
         
         /// <summary>
-        /// ConHold control.
+        /// Caption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ConHold;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Caption;
+        
+        /// <summary>
+        /// Content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Content;
     }
 }
