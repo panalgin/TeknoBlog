@@ -40,6 +40,7 @@ input[type="select"] {
 
 .navbar-inverse {
     background-color: #ffd800 !important;
+    z-index: 12000;
 }
 
 .navbar-nav li a, .navbar-nav li a:visited {
@@ -124,3 +125,7 @@ input[type="select"] {
 .info { display: block; margin: 10px; margin-top: 0px; border-radius: 5px; text-align: center; line-height: 30px; height: 30px; color: #fff; }
 .success { background-color: forestgreen; }
 .error { background-color: #ff0000; }
+
+.header, .header:visited { color: #000; font-weight: bold; font-size: 16px; }
+.header:hover { color: #333; }
+.tweaked-margin {margin-left: 40px; }
