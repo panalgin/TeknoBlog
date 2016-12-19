@@ -29,8 +29,9 @@ namespace TeknoBlog
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js",
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/slider").Include(
-                    "~/Scripts/bxslider.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Global").Include(
+                    "~/Scripts/bxslider.min.js",
+                    "~/Scripts/jquery-datatables.min.js"));
 
             // Use the Development version of Modernizr to develop with and learn from. Then, when you’re
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need

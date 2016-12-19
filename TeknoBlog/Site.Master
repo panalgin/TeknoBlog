@@ -36,7 +36,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <%: Scripts.Render("~/bundles/slider") %>
+        <%: Scripts.Render("~/bundles/Global") %>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
