@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="İçerik Ekle" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="Content.aspx.cs" Inherits="TeknoBlog.Admin.Add._Content" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMainContent" runat="server">
+    <div class="info success" runat="server" id="Info" visible="false">İçerik eklendi!</div>
     <div class="form-group row">
         <asp:Label runat="server" AssociatedControlID="Name_Box" CssClass="col-md-2 control-label">Başlık</asp:Label>
         <div class="col-sm-4">
@@ -34,7 +35,7 @@
             toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
         });
     </script>
-    <textarea></textarea>
+    <textarea runat="server" id="Data_Box"></textarea>
     <div class="form-group row">
         <div class="col-md-10" style="margin-top: 10px;">
             <asp:Button ID="Save_Button" runat="server" Text="Ekle" CssClass="btn btn-default" OnClick="Save_Button_Click" />

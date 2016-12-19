@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="cbc6b00880244555afa22361d9d8e8ec" Name="Diagram1" >
         <EntityTypeShape EntityType="BlogModel.Category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BlogModel.Post" Width="1.5" PointX="3.125" PointY="0.75" />
+        <AssociationConnector Association="BlogModel.PostCategory" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

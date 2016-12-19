@@ -13,6 +13,15 @@ namespace TeknoBlog.Admin.Add {
     public partial class _Content {
         
         /// <summary>
+        /// Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Info;
+        
+        /// <summary>
         /// Name_Box control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace TeknoBlog.Admin.Add {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Category_Combo;
+        
+        /// <summary>
+        /// Data_Box control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Data_Box;
         
         /// <summary>
         /// Save_Button control.
