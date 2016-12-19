@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="TeknoBlog.Admin.Edit._Category" %>
+﻿<%@ Page Title="Kategori Düzenle" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="TeknoBlog.Admin.Edit._Category" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMainContent" runat="server">
     <div class="info success" runat="server" id="Info" visible="false">Kategori düzenlendi!</div>
     <div class="form-group">
