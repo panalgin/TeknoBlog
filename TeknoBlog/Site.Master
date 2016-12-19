@@ -37,6 +37,7 @@
             </Scripts>
         </asp:ScriptManager>
         <%: Scripts.Render("~/bundles/Global") %>
+        <script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
