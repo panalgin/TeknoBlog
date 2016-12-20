@@ -34,6 +34,21 @@
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetCategories">
         <s:complexType />
       </s:element>
@@ -105,6 +120,72 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetComments">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentsResult" type="tns:ArrayOfCommentEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCommentEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CommentEx" nillable="true" type="tns:CommentEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CommentEx">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentResult" type="tns:CommentEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="tns:CommentEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCommentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCommentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCommentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCommentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetPostsSoapIn">
@@ -112,6 +193,12 @@
   </wsdl:message>
   <wsdl:message name="GetPostsSoapOut">
     <wsdl:part name="parameters" element="tns:GetPostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
   <wsdl:message name="GetCategoriesSoapIn">
     <wsdl:part name="parameters" element="tns:GetCategories" />
@@ -143,10 +230,38 @@
   <wsdl:message name="UpdateCategorySoapOut">
     <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetComments" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetComment" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateComment" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteComment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCommentResponse" />
+  </wsdl:message>
   <wsdl:portType name="ApiSoap">
     <wsdl:operation name="GetPosts">
       <wsdl:input message="tns:GetPostsSoapIn" />
       <wsdl:output message="tns:GetPostsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCategories">
       <wsdl:input message="tns:GetCategoriesSoapIn" />
@@ -168,11 +283,36 @@
       <wsdl:input message="tns:UpdateCategorySoapIn" />
       <wsdl:output message="tns:UpdateCategorySoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <wsdl:input message="tns:GetCommentsSoapIn" />
+      <wsdl:output message="tns:GetCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComment">
+      <wsdl:input message="tns:GetCommentSoapIn" />
+      <wsdl:output message="tns:GetCommentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <wsdl:input message="tns:UpdateCommentSoapIn" />
+      <wsdl:output message="tns:UpdateCommentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <wsdl:input message="tns:DeleteCommentSoapIn" />
+      <wsdl:output message="tns:DeleteCommentSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ApiSoap" type="tns:ApiSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetPosts">
       <soap:operation soapAction="http://tempuri.org/GetPosts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -225,11 +365,56 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap:operation soapAction="http://tempuri.org/GetComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComment">
+      <soap:operation soapAction="http://tempuri.org/GetComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <soap:operation soapAction="http://tempuri.org/UpdateComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <soap:operation soapAction="http://tempuri.org/DeleteComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ApiSoap12" type="tns:ApiSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetPosts">
       <soap12:operation soapAction="http://tempuri.org/GetPosts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -275,6 +460,42 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateCategory">
       <soap12:operation soapAction="http://tempuri.org/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap12:operation soapAction="http://tempuri.org/GetComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComment">
+      <soap12:operation soapAction="http://tempuri.org/GetComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <soap12:operation soapAction="http://tempuri.org/UpdateComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <soap12:operation soapAction="http://tempuri.org/DeleteComment" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

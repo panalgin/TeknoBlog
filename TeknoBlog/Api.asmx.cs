@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using TeknoBlog.Models;
 
 namespace TeknoBlog
 {
@@ -29,6 +33,17 @@ namespace TeknoBlog
             }
 
             return m_List;
+        }
+
+        [WebMethod]
+        public bool Login(string email, string password)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+
+            var result = signinManager.PasswordSignIn(email, password, false, shouldLockout: false);
+
+            return result == SignInStatus.Success ? true : false;
         }
 
         #region Category Crud Operations
@@ -114,6 +129,85 @@ namespace TeknoBlog
                     return false;
             }
         }
+        #endregion
+        #region Comment Crud Operations
+
+        [WebMethod]
+        public List<CommentEx> GetComments()
+        {
+            List<CommentEx> m_Comments = new List<CommentEx>();
+
+            using (BlogEntities m_Context = new BlogEntities())
+            {
+                var result = m_Context.Comments.ToList();
+
+                result.All(delegate (Comment comment)
+                {
+                    CommentEx m_CommentEx = CommentEx.CopyFrom(comment);
+
+                    m_Comments.Add(m_CommentEx);
+
+                    return true;
+                });
+            }
+
+            return m_Comments;
+        }
+
+        [WebMethod]
+        public CommentEx GetComment(int id)
+        {
+            CommentEx m_Comment = null;
+
+            using (BlogEntities m_Context = new BlogEntities())
+            {
+                var result = m_Context.Comments.Where(q => q.ID == id).FirstOrDefault();
+
+                if (result != null)
+                    m_Comment = CommentEx.CopyFrom(result);
+            }
+
+            return m_Comment;
+        }
+
+        [WebMethod]
+        public bool UpdateComment(CommentEx comment)
+        {
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                Comment m_Actual = m_Context.Comments.Where(q => q.ID == comment.ID).FirstOrDefault();
+
+                if (m_Actual != null)
+                {
+                    m_Actual.Data = comment.Data;
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool DeleteComment(int id)
+        {
+            using (BlogEntities m_Context = new BlogEntities())
+            {
+                Comment m_Actual = m_Context.Comments.Where(q => q.ID == id).FirstOrDefault();
+
+                if (m_Actual != null)
+                {
+                    m_Context.Comments.Remove(m_Actual);
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
         #endregion
     }
 }

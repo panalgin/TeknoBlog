@@ -211,6 +211,113 @@ namespace BlogControl.ApiService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CommentEx", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class CommentEx : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorNameField;
+        
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string AuthorName {
+            get {
+                return this.AuthorNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorNameField, value) != true)) {
+                    this.AuthorNameField = value;
+                    this.RaisePropertyChanged("AuthorName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string PostName {
+            get {
+                return this.PostNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
+                    this.PostNameField = value;
+                    this.RaisePropertyChanged("PostName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.ApiSoap")]
     public interface ApiSoap {
@@ -221,6 +328,13 @@ namespace BlogControl.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPosts", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.GetPostsResponse> GetPostsAsync(BlogControl.ApiService.GetPostsRequest request);
+        
+        // CODEGEN: Generating message contract since element name email from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
+        BlogControl.ApiService.LoginResponse Login(BlogControl.ApiService.LoginRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> LoginAsync(BlogControl.ApiService.LoginRequest request);
         
         // CODEGEN: Generating message contract since element name GetCategoriesResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCategories", ReplyAction="*")]
@@ -255,6 +369,33 @@ namespace BlogControl.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCategory", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCategoryResponse> UpdateCategoryAsync(BlogControl.ApiService.UpdateCategoryRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetCommentsResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComments", ReplyAction="*")]
+        BlogControl.ApiService.GetCommentsResponse GetComments(BlogControl.ApiService.GetCommentsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComments", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentsResponse> GetCommentsAsync(BlogControl.ApiService.GetCommentsRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetCommentResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComment", ReplyAction="*")]
+        BlogControl.ApiService.GetCommentResponse GetComment(BlogControl.ApiService.GetCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetComment", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentResponse> GetCommentAsync(BlogControl.ApiService.GetCommentRequest request);
+        
+        // CODEGEN: Generating message contract since element name comment from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateComment", ReplyAction="*")]
+        BlogControl.ApiService.UpdateCommentResponse UpdateComment(BlogControl.ApiService.UpdateCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateComment", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCommentResponse> UpdateCommentAsync(BlogControl.ApiService.UpdateCommentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteComment", ReplyAction="*")]
+        bool DeleteComment(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteComment", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> DeleteCommentAsync(int id);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -315,6 +456,78 @@ namespace BlogControl.ApiService {
         
         public GetPostsResponseBody(BlogControl.ApiService.Post[] GetPostsResult) {
             this.GetPostsResult = GetPostsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class LoginRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Login", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.LoginRequestBody Body;
+        
+        public LoginRequest() {
+        }
+        
+        public LoginRequest(BlogControl.ApiService.LoginRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class LoginRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string email;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        public LoginRequestBody() {
+        }
+        
+        public LoginRequestBody(string email, string password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class LoginResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="LoginResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.LoginResponseBody Body;
+        
+        public LoginResponse() {
+        }
+        
+        public LoginResponse(BlogControl.ApiService.LoginResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class LoginResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool LoginResult;
+        
+        public LoginResponseBody() {
+        }
+        
+        public LoginResponseBody(bool LoginResult) {
+            this.LoginResult = LoginResult;
         }
     }
     
@@ -583,6 +796,203 @@ namespace BlogControl.ApiService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCommentsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetComments", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCommentsRequestBody Body;
+        
+        public GetCommentsRequest() {
+        }
+        
+        public GetCommentsRequest(BlogControl.ApiService.GetCommentsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetCommentsRequestBody {
+        
+        public GetCommentsRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCommentsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCommentsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCommentsResponseBody Body;
+        
+        public GetCommentsResponse() {
+        }
+        
+        public GetCommentsResponse(BlogControl.ApiService.GetCommentsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetCommentsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.CommentEx[] GetCommentsResult;
+        
+        public GetCommentsResponseBody() {
+        }
+        
+        public GetCommentsResponseBody(BlogControl.ApiService.CommentEx[] GetCommentsResult) {
+            this.GetCommentsResult = GetCommentsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCommentRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetComment", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCommentRequestBody Body;
+        
+        public GetCommentRequest() {
+        }
+        
+        public GetCommentRequest(BlogControl.ApiService.GetCommentRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetCommentRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public GetCommentRequestBody() {
+        }
+        
+        public GetCommentRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCommentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCommentResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCommentResponseBody Body;
+        
+        public GetCommentResponse() {
+        }
+        
+        public GetCommentResponse(BlogControl.ApiService.GetCommentResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetCommentResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.CommentEx GetCommentResult;
+        
+        public GetCommentResponseBody() {
+        }
+        
+        public GetCommentResponseBody(BlogControl.ApiService.CommentEx GetCommentResult) {
+            this.GetCommentResult = GetCommentResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateCommentRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateComment", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdateCommentRequestBody Body;
+        
+        public UpdateCommentRequest() {
+        }
+        
+        public UpdateCommentRequest(BlogControl.ApiService.UpdateCommentRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateCommentRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.CommentEx comment;
+        
+        public UpdateCommentRequestBody() {
+        }
+        
+        public UpdateCommentRequestBody(BlogControl.ApiService.CommentEx comment) {
+            this.comment = comment;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateCommentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateCommentResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdateCommentResponseBody Body;
+        
+        public UpdateCommentResponse() {
+        }
+        
+        public UpdateCommentResponse(BlogControl.ApiService.UpdateCommentResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateCommentResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdateCommentResult;
+        
+        public UpdateCommentResponseBody() {
+        }
+        
+        public UpdateCommentResponseBody(bool UpdateCommentResult) {
+            this.UpdateCommentResult = UpdateCommentResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ApiSoapChannel : BlogControl.ApiService.ApiSoap, System.ServiceModel.IClientChannel {
     }
@@ -631,6 +1041,33 @@ namespace BlogControl.ApiService {
             BlogControl.ApiService.GetPostsRequest inValue = new BlogControl.ApiService.GetPostsRequest();
             inValue.Body = new BlogControl.ApiService.GetPostsRequestBody();
             return ((BlogControl.ApiService.ApiSoap)(this)).GetPostsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.LoginResponse BlogControl.ApiService.ApiSoap.Login(BlogControl.ApiService.LoginRequest request) {
+            return base.Channel.Login(request);
+        }
+        
+        public bool Login(string email, string password) {
+            BlogControl.ApiService.LoginRequest inValue = new BlogControl.ApiService.LoginRequest();
+            inValue.Body = new BlogControl.ApiService.LoginRequestBody();
+            inValue.Body.email = email;
+            inValue.Body.password = password;
+            BlogControl.ApiService.LoginResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).Login(inValue);
+            return retVal.Body.LoginResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> BlogControl.ApiService.ApiSoap.LoginAsync(BlogControl.ApiService.LoginRequest request) {
+            return base.Channel.LoginAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> LoginAsync(string email, string password) {
+            BlogControl.ApiService.LoginRequest inValue = new BlogControl.ApiService.LoginRequest();
+            inValue.Body = new BlogControl.ApiService.LoginRequestBody();
+            inValue.Body.email = email;
+            inValue.Body.password = password;
+            return ((BlogControl.ApiService.ApiSoap)(this)).LoginAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -737,6 +1174,87 @@ namespace BlogControl.ApiService {
             inValue.Body = new BlogControl.ApiService.UpdateCategoryRequestBody();
             inValue.Body.category = category;
             return ((BlogControl.ApiService.ApiSoap)(this)).UpdateCategoryAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetCommentsResponse BlogControl.ApiService.ApiSoap.GetComments(BlogControl.ApiService.GetCommentsRequest request) {
+            return base.Channel.GetComments(request);
+        }
+        
+        public BlogControl.ApiService.CommentEx[] GetComments() {
+            BlogControl.ApiService.GetCommentsRequest inValue = new BlogControl.ApiService.GetCommentsRequest();
+            inValue.Body = new BlogControl.ApiService.GetCommentsRequestBody();
+            BlogControl.ApiService.GetCommentsResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetComments(inValue);
+            return retVal.Body.GetCommentsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentsResponse> BlogControl.ApiService.ApiSoap.GetCommentsAsync(BlogControl.ApiService.GetCommentsRequest request) {
+            return base.Channel.GetCommentsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentsResponse> GetCommentsAsync() {
+            BlogControl.ApiService.GetCommentsRequest inValue = new BlogControl.ApiService.GetCommentsRequest();
+            inValue.Body = new BlogControl.ApiService.GetCommentsRequestBody();
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetCommentsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetCommentResponse BlogControl.ApiService.ApiSoap.GetComment(BlogControl.ApiService.GetCommentRequest request) {
+            return base.Channel.GetComment(request);
+        }
+        
+        public BlogControl.ApiService.CommentEx GetComment(int id) {
+            BlogControl.ApiService.GetCommentRequest inValue = new BlogControl.ApiService.GetCommentRequest();
+            inValue.Body = new BlogControl.ApiService.GetCommentRequestBody();
+            inValue.Body.id = id;
+            BlogControl.ApiService.GetCommentResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetComment(inValue);
+            return retVal.Body.GetCommentResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentResponse> BlogControl.ApiService.ApiSoap.GetCommentAsync(BlogControl.ApiService.GetCommentRequest request) {
+            return base.Channel.GetCommentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetCommentResponse> GetCommentAsync(int id) {
+            BlogControl.ApiService.GetCommentRequest inValue = new BlogControl.ApiService.GetCommentRequest();
+            inValue.Body = new BlogControl.ApiService.GetCommentRequestBody();
+            inValue.Body.id = id;
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetCommentAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.UpdateCommentResponse BlogControl.ApiService.ApiSoap.UpdateComment(BlogControl.ApiService.UpdateCommentRequest request) {
+            return base.Channel.UpdateComment(request);
+        }
+        
+        public bool UpdateComment(BlogControl.ApiService.CommentEx comment) {
+            BlogControl.ApiService.UpdateCommentRequest inValue = new BlogControl.ApiService.UpdateCommentRequest();
+            inValue.Body = new BlogControl.ApiService.UpdateCommentRequestBody();
+            inValue.Body.comment = comment;
+            BlogControl.ApiService.UpdateCommentResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).UpdateComment(inValue);
+            return retVal.Body.UpdateCommentResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCommentResponse> BlogControl.ApiService.ApiSoap.UpdateCommentAsync(BlogControl.ApiService.UpdateCommentRequest request) {
+            return base.Channel.UpdateCommentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCommentResponse> UpdateCommentAsync(BlogControl.ApiService.CommentEx comment) {
+            BlogControl.ApiService.UpdateCommentRequest inValue = new BlogControl.ApiService.UpdateCommentRequest();
+            inValue.Body = new BlogControl.ApiService.UpdateCommentRequestBody();
+            inValue.Body.comment = comment;
+            return ((BlogControl.ApiService.ApiSoap)(this)).UpdateCommentAsync(inValue);
+        }
+        
+        public bool DeleteComment(int id) {
+            return base.Channel.DeleteComment(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteCommentAsync(int id) {
+            return base.Channel.DeleteCommentAsync(id);
         }
     }
 }

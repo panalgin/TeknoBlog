@@ -51,7 +51,7 @@ namespace TeknoBlog.Account
                         break;
                     case SignInStatus.Failure:
                     default:
-                        FailureText.Text = "Invalid login attempt";
+                        FailureText.Text = "Girdiğiniz bilgiler hatalı.";
                         ErrorMessage.Visible = true;
                         break;
                 }

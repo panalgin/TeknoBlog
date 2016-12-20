@@ -705,6 +705,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Models\CommentEx.cs" />
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
