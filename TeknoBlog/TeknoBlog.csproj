@@ -183,6 +183,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Admin\Add\Category.aspx" />
     <Content Include="Admin\Add\Content.aspx" />
+    <Content Include="Admin\Add\User.aspx" />
     <Content Include="Admin\Categories.aspx" />
     <Content Include="Admin\Comments.aspx" />
     <Content Include="Admin\Contents.aspx" />
@@ -560,6 +561,13 @@
     </Compile>
     <Compile Include="Admin\Add\Content.aspx.designer.cs">
       <DependentUpon>Content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Categories.aspx.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
