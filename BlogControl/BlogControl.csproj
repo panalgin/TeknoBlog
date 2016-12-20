@@ -65,6 +65,9 @@
     <Compile Include="Edit_Category_Pop.Designer.cs">
       <DependentUpon>Edit_Category_Pop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Events\EventHandlers.cs" />
+    <Compile Include="Events\EventSink.cs" />
+    <Compile Include="Events\LoginEventArgs.cs" />
     <Compile Include="Login_Mdi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +153,9 @@
     <None Include="Service References\ApiService\BlogControl.ApiService.GetPostsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.GetUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -160,6 +166,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.UpdateCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.UserEx.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

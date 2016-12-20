@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlogControl.Events;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,11 +22,17 @@ namespace BlogControl
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.toolStrip1.Enabled = false;
+            EventSink.Login += EventSink_Login;
 
             Login_Mdi m_Mdi = new Login_Mdi();
             m_Mdi.MdiParent = this;
             m_Mdi.Show();
+        }
+
+        private void EventSink_Login(LoginEventArgs args)
+        {
+            this.toolStrip1.Enabled = true;
+            Program.User = args.User;
         }
 
         private void Categories_Button_Click(object sender, EventArgs e)

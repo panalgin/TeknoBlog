@@ -54,7 +54,7 @@
             this.panel2.Location = new System.Drawing.Point(343, 185);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(172, 26);
-            this.panel2.TabIndex = 32;
+            this.panel2.TabIndex = 1;
             // 
             // Password_Box
             // 
@@ -64,7 +64,8 @@
             this.Password_Box.Name = "Password_Box";
             this.Password_Box.PasswordChar = '*';
             this.Password_Box.Size = new System.Drawing.Size(164, 13);
-            this.Password_Box.TabIndex = 11;
+            this.Password_Box.TabIndex = 0;
+            this.Password_Box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Password_Box_KeyDown);
             // 
             // panel1
             // 
@@ -74,7 +75,7 @@
             this.panel1.Location = new System.Drawing.Point(343, 153);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(172, 26);
-            this.panel1.TabIndex = 31;
+            this.panel1.TabIndex = 0;
             // 
             // Email_Box
             // 
@@ -83,7 +84,8 @@
             this.Email_Box.Location = new System.Drawing.Point(3, 6);
             this.Email_Box.Name = "Email_Box";
             this.Email_Box.Size = new System.Drawing.Size(164, 13);
-            this.Email_Box.TabIndex = 10;
+            this.Email_Box.TabIndex = 0;
+            this.Email_Box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Email_Box_KeyDown);
             // 
             // label1
             // 
@@ -107,7 +109,7 @@
             this.Login_Button.Location = new System.Drawing.Point(453, 223);
             this.Login_Button.Name = "Login_Button";
             this.Login_Button.Size = new System.Drawing.Size(62, 24);
-            this.Login_Button.TabIndex = 26;
+            this.Login_Button.TabIndex = 2;
             this.Login_Button.Text = "Giriş";
             this.Login_Button.UseVisualStyleBackColor = false;
             this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
@@ -188,6 +190,7 @@
             this.Name = "Login_Mdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_Mdi";
+            this.Load += new System.EventHandler(this.Login_Mdi_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlogControl.ApiService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,8 +7,9 @@ using System.Windows.Forms;
 
 namespace BlogControl
 {
-    static class Program
+    public static class Program
     {
+        public static UserEx User { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

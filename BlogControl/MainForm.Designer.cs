@@ -41,6 +41,7 @@
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.CanOverflow = false;
+            this.toolStrip1.Enabled = false;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton4,

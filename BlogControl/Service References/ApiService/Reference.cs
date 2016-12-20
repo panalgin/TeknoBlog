@@ -213,6 +213,98 @@ namespace BlogControl.ApiService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserEx", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class UserEx : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        private bool IsAdministratorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool IsAdministrator {
+            get {
+                return this.IsAdministratorField;
+            }
+            set {
+                if ((this.IsAdministratorField.Equals(value) != true)) {
+                    this.IsAdministratorField = value;
+                    this.RaisePropertyChanged("IsAdministrator");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CommentEx", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class CommentEx : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -335,6 +427,13 @@ namespace BlogControl.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> LoginAsync(BlogControl.ApiService.LoginRequest request);
+        
+        // CODEGEN: Generating message contract since element name email from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUser", ReplyAction="*")]
+        BlogControl.ApiService.GetUserResponse GetUser(BlogControl.ApiService.GetUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetUserResponse> GetUserAsync(BlogControl.ApiService.GetUserRequest request);
         
         // CODEGEN: Generating message contract since element name GetCategoriesResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCategories", ReplyAction="*")]
@@ -528,6 +627,74 @@ namespace BlogControl.ApiService {
         
         public LoginResponseBody(bool LoginResult) {
             this.LoginResult = LoginResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUser", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetUserRequestBody Body;
+        
+        public GetUserRequest() {
+        }
+        
+        public GetUserRequest(BlogControl.ApiService.GetUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string email;
+        
+        public GetUserRequestBody() {
+        }
+        
+        public GetUserRequestBody(string email) {
+            this.email = email;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetUserResponseBody Body;
+        
+        public GetUserResponse() {
+        }
+        
+        public GetUserResponse(BlogControl.ApiService.GetUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetUserResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.UserEx GetUserResult;
+        
+        public GetUserResponseBody() {
+        }
+        
+        public GetUserResponseBody(BlogControl.ApiService.UserEx GetUserResult) {
+            this.GetUserResult = GetUserResult;
         }
     }
     
@@ -1068,6 +1235,31 @@ namespace BlogControl.ApiService {
             inValue.Body.email = email;
             inValue.Body.password = password;
             return ((BlogControl.ApiService.ApiSoap)(this)).LoginAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetUserResponse BlogControl.ApiService.ApiSoap.GetUser(BlogControl.ApiService.GetUserRequest request) {
+            return base.Channel.GetUser(request);
+        }
+        
+        public BlogControl.ApiService.UserEx GetUser(string email) {
+            BlogControl.ApiService.GetUserRequest inValue = new BlogControl.ApiService.GetUserRequest();
+            inValue.Body = new BlogControl.ApiService.GetUserRequestBody();
+            inValue.Body.email = email;
+            BlogControl.ApiService.GetUserResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetUser(inValue);
+            return retVal.Body.GetUserResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetUserResponse> BlogControl.ApiService.ApiSoap.GetUserAsync(BlogControl.ApiService.GetUserRequest request) {
+            return base.Channel.GetUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetUserResponse> GetUserAsync(string email) {
+            BlogControl.ApiService.GetUserRequest inValue = new BlogControl.ApiService.GetUserRequest();
+            inValue.Body = new BlogControl.ApiService.GetUserRequestBody();
+            inValue.Body.email = email;
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetUserAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
