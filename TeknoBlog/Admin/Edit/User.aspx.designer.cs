@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TeknoBlog.Admin.Add {
+namespace TeknoBlog.Admin.Edit {
     
     
     public partial class _User {
@@ -22,39 +22,30 @@ namespace TeknoBlog.Admin.Add {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Info;
         
         /// <summary>
-        /// Email control.
+        /// Email_Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Email_Label;
         
         /// <summary>
-        /// Password control.
+        /// IsAdministrator_Check control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.CheckBox IsAdministrator_Check;
         
         /// <summary>
-        /// ConfirmPassword control.
+        /// Save_Button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
-        
-        /// <summary>
-        /// Create_User_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Create_User_Button;
+        protected global::System.Web.UI.WebControls.Button Save_Button;
     }
 }

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Kullanıcı Ekle" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="TeknoBlog.Admin.Add._User" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminMainContent" runat="server">
     <div class="container">
+        <div class="info success" runat="server" id="Info" visible="false">Kullanıcı eklendi!</div>
+
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
