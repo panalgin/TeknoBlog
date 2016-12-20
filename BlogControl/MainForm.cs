@@ -23,5 +23,12 @@ namespace BlogControl
         {
 
         }
+
+        private void Categories_Button_Click(object sender, EventArgs e)
+        {
+            Manage_Categories_Mdi m_Mdi = new Manage_Categories_Mdi();
+            m_Mdi.MdiParent = this;
+            m_Mdi.Show();
+        }
     }
 }

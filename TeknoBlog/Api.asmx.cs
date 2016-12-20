@@ -16,23 +16,68 @@ namespace TeknoBlog
     // [System.Web.Script.Services.ScriptService]
     public class Api : System.Web.Services.WebService
     {
-
         [WebMethod]
-        public string HelloWorld()
+        public List<Post> GetPosts()
         {
-            return "Hello World";
+            List<Post> m_List = new List<Post>();
+
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                m_Context.Configuration.ProxyCreationEnabled = false;
+
+                m_List = m_Context.Posts.ToList();
+            }
+
+            return m_List;
         }
 
         [WebMethod]
-        public double FahrenheitToCelsius(double Fahrenheit)
+        public List<Category> GetCategories()
         {
-            return ((Fahrenheit - 32) * 5) / 9;
+            List<Category> m_List = new List<Category>();
+
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                m_Context.Configuration.ProxyCreationEnabled = false;
+                m_List = m_Context.Categories.ToList();
+            }
+
+            return m_List;
         }
 
         [WebMethod]
-        public double CelsiusToFahrenheit(double Celsius)
+        public bool DeleteCategory(int id)
         {
-            return ((Celsius * 9) / 5) + 32;
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                var m_Category = m_Context.Categories.Where(q => q.ID == id).FirstOrDefault();
+
+                if (m_Category != null)
+                {
+                    m_Context.Categories.Remove(m_Category);
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool AddCategory(Category category)
+        {
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                if (category.Name.Length > 0)
+                {
+                    m_Context.Categories.Add(category);
+                    m_Context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
         }
     }
 }
