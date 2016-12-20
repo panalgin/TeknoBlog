@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="BlogModel.Category" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="BlogModel.Post" Width="1.5" PointX="3.125" PointY="0.75" />
         <AssociationConnector Association="BlogModel.PostCategory" />
+        <EntityTypeShape EntityType="BlogModel.Comment" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="BlogModel.CommentPost" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

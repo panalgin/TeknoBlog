@@ -12,6 +12,16 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="AuthorID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Data" Type="ntext" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="ID" />
@@ -25,6 +35,7 @@
         </EntityType>
         <EntityContainer Name="BlogModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -37,6 +48,11 @@
           <AssociationSet Name="PostCategory" Association="BlogModel.PostCategory">
             <End Role="Post" EntitySet="Posts" />
             <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="Comments" EntityType="BlogModel.Comment" />
+          <AssociationSet Name="CommentPost" Association="BlogModel.CommentPost">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="Post" EntitySet="Posts" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Category">
@@ -70,6 +86,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="AuthorID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Post" Relationship="BlogModel.CommentPost" FromRole="Comment" ToRole="Post" />
+        </EntityType>
+        <Association Name="CommentPost">
+          <End Type="BlogModel.Comment" Role="Comment" Multiplicity="*" />
+          <End Type="BlogModel.Post" Role="Post" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -92,6 +131,17 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Caption" ColumnName="Caption" />
                 <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="BlogModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -27,5 +27,6 @@ namespace TeknoBlog
     
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
     }
 }
