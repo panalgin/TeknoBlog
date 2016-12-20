@@ -10,7 +10,7 @@
 
         </div>
         <hr />
-        <asp:LoginView runat="server" ViewStateMode="Disabled">
+        <asp:LoginView ID="Login_View" runat="server">
             <AnonymousTemplate>
                 <div class="row">
                     Yorum yapabilmeniz için giriş yapmalısınız.
@@ -22,6 +22,7 @@
                         <asp:Label AssociatedControlID="Comment_Box" CssClass="col-sm-1 control-label" Text="Yorumunuz" runat="server"></asp:Label>
                         <div class="col-sm-4" style="margin-left: 12px">
                             <asp:TextBox ID="Comment_Box" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Comment_Box" CssClass="text-danger" ErrorMessage="Yorum alanı gereklidir." />
                         </div>
                     </div>
                 </div>

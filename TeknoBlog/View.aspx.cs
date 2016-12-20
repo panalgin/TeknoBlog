@@ -71,7 +71,41 @@ namespace TeknoBlog
 
         protected void Submit_Comment_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
+                NameValueCollection m_Query = Request.QueryString;
 
+                if (m_Query.HasKeys() && Context.User.Identity != null)
+                {
+                    int m_PostID = Convert.ToInt32(m_Query.Get("ID"));
+
+                    if (m_PostID > 0) {
+                        ApplicationDbContext m_AspnetContext = new ApplicationDbContext();
+                        var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_AspnetContext));
+                        var m_Author = m_Manager.FindByName(HttpContext.Current.User.Identity.GetUserName());
+
+                        using (BlogEntities m_Context = new BlogEntities())
+                        {
+                            Post m_Post = m_Context.Posts.Where(q => q.ID == m_PostID).FirstOrDefault();
+
+                            if (m_Post != null)
+                            {
+                                Comment m_Comment = new Comment();
+                                m_Comment.AuthorID = m_Author.Id;
+                                m_Comment.CreatedAt = DateTime.Now;
+                                TextBox m_Comment_Box = this.Login_View.FindControl("Comment_Box") as TextBox;
+                                m_Comment.Data = m_Comment_Box.Text;
+                                m_Comment.PostID = m_Post.ID;
+
+                                m_Context.Comments.Add(m_Comment);
+                                m_Context.SaveChanges();
+
+                                Response.Redirect(string.Format("View?ID={0}", m_PostID));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
