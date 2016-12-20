@@ -187,8 +187,10 @@
     <Content Include="Admin\Comments.aspx" />
     <Content Include="Admin\Contents.aspx" />
     <Content Include="Admin\Delete\Category.aspx" />
+    <Content Include="Admin\Delete\Comment.aspx" />
     <Content Include="Admin\Delete\Content.aspx" />
     <Content Include="Admin\Edit\Category.aspx" />
+    <Content Include="Admin\Edit\Comment.aspx" />
     <Content Include="Admin\Edit\Content.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Users.aspx" />
@@ -587,6 +589,13 @@
     <Compile Include="Admin\Delete\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Delete\Comment.aspx.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Delete\Comment.aspx.designer.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Delete\Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -600,6 +609,13 @@
     </Compile>
     <Compile Include="Admin\Edit\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Edit\Comment.aspx.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Edit\Comment.aspx.designer.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Edit\Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
