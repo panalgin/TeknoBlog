@@ -46,6 +46,23 @@ namespace TeknoBlog
             return result == SignInStatus.Success ? true : false;
         }
 
+        [WebMethod]
+        public UserEx GetUser(string email)
+        {
+            using (ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                var m_User = m_Manager.FindByEmail(email);
+
+                if (m_User != null)
+                {
+                    return UserEx.CopyFrom(m_User);
+                }
+                else
+                    return null;
+            }
+        }
+
         #region Category Crud Operations
         [WebMethod]
         public List<Category> GetCategories()

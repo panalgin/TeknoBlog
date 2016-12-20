@@ -21,7 +21,11 @@ namespace BlogControl
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.toolStrip1.Enabled = false;
 
+            Login_Mdi m_Mdi = new Login_Mdi();
+            m_Mdi.MdiParent = this;
+            m_Mdi.Show();
         }
 
         private void Categories_Button_Click(object sender, EventArgs e)
