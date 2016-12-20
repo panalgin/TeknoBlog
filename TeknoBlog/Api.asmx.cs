@@ -31,6 +31,7 @@ namespace TeknoBlog
             return m_List;
         }
 
+        #region Category Crud Operations
         [WebMethod]
         public List<Category> GetCategories()
         {
@@ -43,6 +44,20 @@ namespace TeknoBlog
             }
 
             return m_List;
+        }
+
+        [WebMethod]
+        public Category GetCategory(int id)
+        {
+            Category m_Category = null;
+
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                m_Context.Configuration.ProxyCreationEnabled = false;
+                m_Category = m_Context.Categories.Where(q => q.ID == id).FirstOrDefault();
+            }
+
+            return m_Category;
         }
 
         [WebMethod]
@@ -79,5 +94,26 @@ namespace TeknoBlog
                     return false;
             }
         }
+
+        [WebMethod]
+        public bool UpdateCategory(Category category)
+        {
+
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                Category m_Actual = m_Context.Categories.Where(q => q.ID == category.ID).FirstOrDefault();
+
+                if (m_Actual != null)
+                {
+                    m_Actual.Name = category.Name;
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+        #endregion
     }
 }

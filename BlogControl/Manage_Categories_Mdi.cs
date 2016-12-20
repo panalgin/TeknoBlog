@@ -86,7 +86,24 @@ namespace BlogControl
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
+            if (this.Categories_List.SelectedItems.Count > 0)
+            {
+                int m_CategoryID = Convert.ToInt32(this.Categories_List.SelectedItems[0].Tag);
 
+                using(ApiSoapClient m_Client = new ApiSoapClient())
+                {
+                    Category m_Category = m_Client.GetCategory(m_CategoryID);
+
+                    if (m_Category != null)
+                    {
+                        Edit_Category_Pop m_Pop = new Edit_Category_Pop();
+                        m_Pop.Category = m_Category;
+                        m_Pop.ShowDialog();
+                        this.PopulateList();
+                    }
+                }
+
+            }
         }
 
         private void Add_Button_Click(object sender, EventArgs e)

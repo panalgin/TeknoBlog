@@ -229,6 +229,13 @@ namespace BlogControl.ApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCategories", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.GetCategoriesResponse> GetCategoriesAsync(BlogControl.ApiService.GetCategoriesRequest request);
         
+        // CODEGEN: Generating message contract since element name GetCategoryResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCategory", ReplyAction="*")]
+        BlogControl.ApiService.GetCategoryResponse GetCategory(BlogControl.ApiService.GetCategoryRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCategoryResponse> GetCategoryAsync(BlogControl.ApiService.GetCategoryRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteCategory", ReplyAction="*")]
         bool DeleteCategory(int id);
         
@@ -241,6 +248,13 @@ namespace BlogControl.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddCategory", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.AddCategoryResponse> AddCategoryAsync(BlogControl.ApiService.AddCategoryRequest request);
+        
+        // CODEGEN: Generating message contract since element name category from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCategory", ReplyAction="*")]
+        BlogControl.ApiService.UpdateCategoryResponse UpdateCategory(BlogControl.ApiService.UpdateCategoryRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCategoryResponse> UpdateCategoryAsync(BlogControl.ApiService.UpdateCategoryRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -369,6 +383,74 @@ namespace BlogControl.ApiService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCategoryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCategory", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCategoryRequestBody Body;
+        
+        public GetCategoryRequest() {
+        }
+        
+        public GetCategoryRequest(BlogControl.ApiService.GetCategoryRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetCategoryRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public GetCategoryRequestBody() {
+        }
+        
+        public GetCategoryRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetCategoryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCategoryResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetCategoryResponseBody Body;
+        
+        public GetCategoryResponse() {
+        }
+        
+        public GetCategoryResponse(BlogControl.ApiService.GetCategoryResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetCategoryResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.Category GetCategoryResult;
+        
+        public GetCategoryResponseBody() {
+        }
+        
+        public GetCategoryResponseBody(BlogControl.ApiService.Category GetCategoryResult) {
+            this.GetCategoryResult = GetCategoryResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddCategoryRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddCategory", Namespace="http://tempuri.org/", Order=0)]
@@ -430,6 +512,74 @@ namespace BlogControl.ApiService {
         
         public AddCategoryResponseBody(bool AddCategoryResult) {
             this.AddCategoryResult = AddCategoryResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateCategoryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateCategory", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdateCategoryRequestBody Body;
+        
+        public UpdateCategoryRequest() {
+        }
+        
+        public UpdateCategoryRequest(BlogControl.ApiService.UpdateCategoryRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateCategoryRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.Category category;
+        
+        public UpdateCategoryRequestBody() {
+        }
+        
+        public UpdateCategoryRequestBody(BlogControl.ApiService.Category category) {
+            this.category = category;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateCategoryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateCategoryResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdateCategoryResponseBody Body;
+        
+        public UpdateCategoryResponse() {
+        }
+        
+        public UpdateCategoryResponse(BlogControl.ApiService.UpdateCategoryResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateCategoryResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdateCategoryResult;
+        
+        public UpdateCategoryResponseBody() {
+        }
+        
+        public UpdateCategoryResponseBody(bool UpdateCategoryResult) {
+            this.UpdateCategoryResult = UpdateCategoryResult;
         }
     }
     
@@ -506,6 +656,31 @@ namespace BlogControl.ApiService {
             return ((BlogControl.ApiService.ApiSoap)(this)).GetCategoriesAsync(inValue);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetCategoryResponse BlogControl.ApiService.ApiSoap.GetCategory(BlogControl.ApiService.GetCategoryRequest request) {
+            return base.Channel.GetCategory(request);
+        }
+        
+        public BlogControl.ApiService.Category GetCategory(int id) {
+            BlogControl.ApiService.GetCategoryRequest inValue = new BlogControl.ApiService.GetCategoryRequest();
+            inValue.Body = new BlogControl.ApiService.GetCategoryRequestBody();
+            inValue.Body.id = id;
+            BlogControl.ApiService.GetCategoryResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetCategory(inValue);
+            return retVal.Body.GetCategoryResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetCategoryResponse> BlogControl.ApiService.ApiSoap.GetCategoryAsync(BlogControl.ApiService.GetCategoryRequest request) {
+            return base.Channel.GetCategoryAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetCategoryResponse> GetCategoryAsync(int id) {
+            BlogControl.ApiService.GetCategoryRequest inValue = new BlogControl.ApiService.GetCategoryRequest();
+            inValue.Body = new BlogControl.ApiService.GetCategoryRequestBody();
+            inValue.Body.id = id;
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetCategoryAsync(inValue);
+        }
+        
         public bool DeleteCategory(int id) {
             return base.Channel.DeleteCategory(id);
         }
@@ -537,6 +712,31 @@ namespace BlogControl.ApiService {
             inValue.Body = new BlogControl.ApiService.AddCategoryRequestBody();
             inValue.Body.category = category;
             return ((BlogControl.ApiService.ApiSoap)(this)).AddCategoryAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.UpdateCategoryResponse BlogControl.ApiService.ApiSoap.UpdateCategory(BlogControl.ApiService.UpdateCategoryRequest request) {
+            return base.Channel.UpdateCategory(request);
+        }
+        
+        public bool UpdateCategory(BlogControl.ApiService.Category category) {
+            BlogControl.ApiService.UpdateCategoryRequest inValue = new BlogControl.ApiService.UpdateCategoryRequest();
+            inValue.Body = new BlogControl.ApiService.UpdateCategoryRequestBody();
+            inValue.Body.category = category;
+            BlogControl.ApiService.UpdateCategoryResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).UpdateCategory(inValue);
+            return retVal.Body.UpdateCategoryResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCategoryResponse> BlogControl.ApiService.ApiSoap.UpdateCategoryAsync(BlogControl.ApiService.UpdateCategoryRequest request) {
+            return base.Channel.UpdateCategoryAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.UpdateCategoryResponse> UpdateCategoryAsync(BlogControl.ApiService.Category category) {
+            BlogControl.ApiService.UpdateCategoryRequest inValue = new BlogControl.ApiService.UpdateCategoryRequest();
+            inValue.Body = new BlogControl.ApiService.UpdateCategoryRequestBody();
+            inValue.Body.category = category;
+            return ((BlogControl.ApiService.ApiSoap)(this)).UpdateCategoryAsync(inValue);
         }
     }
 }

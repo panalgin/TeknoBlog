@@ -1,6 +1,6 @@
 ﻿namespace BlogControl
 {
-    partial class Add_Category_Pop
+    partial class Edit_Category_Pop
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.Name_Box = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Delete_Button = new System.Windows.Forms.Button();
             this.Save_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // Name_Box
+            // 
+            this.Name_Box.Location = new System.Drawing.Point(85, 12);
+            this.Name_Box.Name = "Name_Box";
+            this.Name_Box.Size = new System.Drawing.Size(264, 20);
+            this.Name_Box.TabIndex = 5;
             // 
             // label1
             // 
@@ -40,27 +47,20 @@
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Kategori Adı:";
-            // 
-            // Name_Box
-            // 
-            this.Name_Box.Location = new System.Drawing.Point(85, 12);
-            this.Name_Box.Name = "Name_Box";
-            this.Name_Box.Size = new System.Drawing.Size(264, 20);
-            this.Name_Box.TabIndex = 1;
             // 
             // Delete_Button
             // 
-            this.Delete_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Delete_Button.Image = global::BlogControl.Properties.Resources.cancel;
             this.Delete_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Delete_Button.Location = new System.Drawing.Point(251, 86);
             this.Delete_Button.Name = "Delete_Button";
             this.Delete_Button.Size = new System.Drawing.Size(98, 23);
-            this.Delete_Button.TabIndex = 3;
+            this.Delete_Button.TabIndex = 7;
             this.Delete_Button.Text = "İptal";
             this.Delete_Button.UseVisualStyleBackColor = true;
+            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
             // 
             // Save_Button
             // 
@@ -69,12 +69,12 @@
             this.Save_Button.Location = new System.Drawing.Point(147, 86);
             this.Save_Button.Name = "Save_Button";
             this.Save_Button.Size = new System.Drawing.Size(98, 23);
-            this.Save_Button.TabIndex = 2;
+            this.Save_Button.TabIndex = 6;
             this.Save_Button.Text = "Kaydet";
             this.Save_Button.UseVisualStyleBackColor = true;
             this.Save_Button.Click += new System.EventHandler(this.Save_Button_Click);
             // 
-            // Add_Category_Pop
+            // Edit_Category_Pop
             // 
             this.AcceptButton = this.Save_Button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,9 +88,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Add_Category_Pop";
+            this.Name = "Edit_Category_Pop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Yeni Kategori Ekle";
+            this.Text = "Kategori Düzenle";
+            this.Load += new System.EventHandler(this.Edit_Category_Pop_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,9 +99,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Name_Box;
-        private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.Button Delete_Button;
+        private System.Windows.Forms.Button Save_Button;
+        private System.Windows.Forms.TextBox Name_Box;
+        private System.Windows.Forms.Label label1;
     }
 }
