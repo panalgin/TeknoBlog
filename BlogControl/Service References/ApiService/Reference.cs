@@ -437,6 +437,33 @@ namespace BlogControl.ApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPosts", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.GetPostsResponse> GetPostsAsync(BlogControl.ApiService.GetPostsRequest request);
         
+        // CODEGEN: Generating message contract since element name GetPostResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPost", ReplyAction="*")]
+        BlogControl.ApiService.GetPostResponse GetPost(BlogControl.ApiService.GetPostRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPost", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetPostResponse> GetPostAsync(BlogControl.ApiService.GetPostRequest request);
+        
+        // CODEGEN: Generating message contract since element name post from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddPost", ReplyAction="*")]
+        BlogControl.ApiService.AddPostResponse AddPost(BlogControl.ApiService.AddPostRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddPost", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.AddPostResponse> AddPostAsync(BlogControl.ApiService.AddPostRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeletePost", ReplyAction="*")]
+        bool DeletePost(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeletePost", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> DeletePostAsync(int id);
+        
+        // CODEGEN: Generating message contract since element name post from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePost", ReplyAction="*")]
+        BlogControl.ApiService.UpdatePostResponse UpdatePost(BlogControl.ApiService.UpdatePostRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePost", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdatePostResponse> UpdatePostAsync(BlogControl.ApiService.UpdatePostRequest request);
+        
         // CODEGEN: Generating message contract since element name username from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         BlogControl.ApiService.LoginResponse Login(BlogControl.ApiService.LoginRequest request);
@@ -606,6 +633,210 @@ namespace BlogControl.ApiService {
         
         public GetPostsResponseBody(BlogControl.ApiService.Post[] GetPostsResult) {
             this.GetPostsResult = GetPostsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPostRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPost", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetPostRequestBody Body;
+        
+        public GetPostRequest() {
+        }
+        
+        public GetPostRequest(BlogControl.ApiService.GetPostRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPostRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public GetPostRequestBody() {
+        }
+        
+        public GetPostRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPostResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPostResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetPostResponseBody Body;
+        
+        public GetPostResponse() {
+        }
+        
+        public GetPostResponse(BlogControl.ApiService.GetPostResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPostResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.Post GetPostResult;
+        
+        public GetPostResponseBody() {
+        }
+        
+        public GetPostResponseBody(BlogControl.ApiService.Post GetPostResult) {
+            this.GetPostResult = GetPostResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddPostRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPost", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.AddPostRequestBody Body;
+        
+        public AddPostRequest() {
+        }
+        
+        public AddPostRequest(BlogControl.ApiService.AddPostRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddPostRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.Post post;
+        
+        public AddPostRequestBody() {
+        }
+        
+        public AddPostRequestBody(BlogControl.ApiService.Post post) {
+            this.post = post;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddPostResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPostResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.AddPostResponseBody Body;
+        
+        public AddPostResponse() {
+        }
+        
+        public AddPostResponse(BlogControl.ApiService.AddPostResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddPostResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool AddPostResult;
+        
+        public AddPostResponseBody() {
+        }
+        
+        public AddPostResponseBody(bool AddPostResult) {
+            this.AddPostResult = AddPostResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdatePostRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdatePost", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdatePostRequestBody Body;
+        
+        public UpdatePostRequest() {
+        }
+        
+        public UpdatePostRequest(BlogControl.ApiService.UpdatePostRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdatePostRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.Post post;
+        
+        public UpdatePostRequestBody() {
+        }
+        
+        public UpdatePostRequestBody(BlogControl.ApiService.Post post) {
+            this.post = post;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdatePostResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdatePostResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.UpdatePostResponseBody Body;
+        
+        public UpdatePostResponse() {
+        }
+        
+        public UpdatePostResponse(BlogControl.ApiService.UpdatePostResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdatePostResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdatePostResult;
+        
+        public UpdatePostResponseBody() {
+        }
+        
+        public UpdatePostResponseBody(bool UpdatePostResult) {
+            this.UpdatePostResult = UpdatePostResult;
         }
     }
     
@@ -1592,6 +1823,89 @@ namespace BlogControl.ApiService {
             BlogControl.ApiService.GetPostsRequest inValue = new BlogControl.ApiService.GetPostsRequest();
             inValue.Body = new BlogControl.ApiService.GetPostsRequestBody();
             return ((BlogControl.ApiService.ApiSoap)(this)).GetPostsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetPostResponse BlogControl.ApiService.ApiSoap.GetPost(BlogControl.ApiService.GetPostRequest request) {
+            return base.Channel.GetPost(request);
+        }
+        
+        public BlogControl.ApiService.Post GetPost(int id) {
+            BlogControl.ApiService.GetPostRequest inValue = new BlogControl.ApiService.GetPostRequest();
+            inValue.Body = new BlogControl.ApiService.GetPostRequestBody();
+            inValue.Body.id = id;
+            BlogControl.ApiService.GetPostResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetPost(inValue);
+            return retVal.Body.GetPostResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetPostResponse> BlogControl.ApiService.ApiSoap.GetPostAsync(BlogControl.ApiService.GetPostRequest request) {
+            return base.Channel.GetPostAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetPostResponse> GetPostAsync(int id) {
+            BlogControl.ApiService.GetPostRequest inValue = new BlogControl.ApiService.GetPostRequest();
+            inValue.Body = new BlogControl.ApiService.GetPostRequestBody();
+            inValue.Body.id = id;
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetPostAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.AddPostResponse BlogControl.ApiService.ApiSoap.AddPost(BlogControl.ApiService.AddPostRequest request) {
+            return base.Channel.AddPost(request);
+        }
+        
+        public bool AddPost(BlogControl.ApiService.Post post) {
+            BlogControl.ApiService.AddPostRequest inValue = new BlogControl.ApiService.AddPostRequest();
+            inValue.Body = new BlogControl.ApiService.AddPostRequestBody();
+            inValue.Body.post = post;
+            BlogControl.ApiService.AddPostResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).AddPost(inValue);
+            return retVal.Body.AddPostResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.AddPostResponse> BlogControl.ApiService.ApiSoap.AddPostAsync(BlogControl.ApiService.AddPostRequest request) {
+            return base.Channel.AddPostAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.AddPostResponse> AddPostAsync(BlogControl.ApiService.Post post) {
+            BlogControl.ApiService.AddPostRequest inValue = new BlogControl.ApiService.AddPostRequest();
+            inValue.Body = new BlogControl.ApiService.AddPostRequestBody();
+            inValue.Body.post = post;
+            return ((BlogControl.ApiService.ApiSoap)(this)).AddPostAsync(inValue);
+        }
+        
+        public bool DeletePost(int id) {
+            return base.Channel.DeletePost(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeletePostAsync(int id) {
+            return base.Channel.DeletePostAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.UpdatePostResponse BlogControl.ApiService.ApiSoap.UpdatePost(BlogControl.ApiService.UpdatePostRequest request) {
+            return base.Channel.UpdatePost(request);
+        }
+        
+        public bool UpdatePost(BlogControl.ApiService.Post post) {
+            BlogControl.ApiService.UpdatePostRequest inValue = new BlogControl.ApiService.UpdatePostRequest();
+            inValue.Body = new BlogControl.ApiService.UpdatePostRequestBody();
+            inValue.Body.post = post;
+            BlogControl.ApiService.UpdatePostResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).UpdatePost(inValue);
+            return retVal.Body.UpdatePostResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.UpdatePostResponse> BlogControl.ApiService.ApiSoap.UpdatePostAsync(BlogControl.ApiService.UpdatePostRequest request) {
+            return base.Channel.UpdatePostAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.UpdatePostResponse> UpdatePostAsync(BlogControl.ApiService.Post post) {
+            BlogControl.ApiService.UpdatePostRequest inValue = new BlogControl.ApiService.UpdatePostRequest();
+            inValue.Body = new BlogControl.ApiService.UpdatePostRequestBody();
+            inValue.Body.post = post;
+            return ((BlogControl.ApiService.ApiSoap)(this)).UpdatePostAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

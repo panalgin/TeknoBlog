@@ -20,6 +20,7 @@ namespace TeknoBlog
     // [System.Web.Script.Services.ScriptService]
     public class Api : System.Web.Services.WebService
     {
+        #region Post Crud Operations
         [WebMethod]
         public List<Post> GetPosts()
         {
@@ -28,13 +29,85 @@ namespace TeknoBlog
             using(BlogEntities m_Context = new BlogEntities())
             {
                 m_Context.Configuration.ProxyCreationEnabled = false;
-
                 m_List = m_Context.Posts.ToList();
             }
 
             return m_List;
         }
 
+        [WebMethod]
+        public Post GetPost(int id)
+        {
+            Post m_Post = null;
+
+            using (BlogEntities m_Context = new BlogEntities())
+            {
+                m_Context.Configuration.ProxyCreationEnabled = false;
+                m_Post = m_Context.Posts.Where(q => q.ID == id).FirstOrDefault();
+            }
+
+            return m_Post;
+        }
+
+        [WebMethod]
+        public bool AddPost(Post post)
+        {
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                if (post != null)
+                {
+                    m_Context.Posts.Add(post);
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool DeletePost(int id)
+        {
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                Post m_Post = m_Context.Posts.Where(q => q.ID == id).FirstOrDefault();
+
+                if (m_Post != null)
+                {
+                    m_Context.Posts.Remove(m_Post);
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool UpdatePost(Post post)
+        {
+            using(BlogEntities m_Context = new BlogEntities())
+            {
+                Post m_Actual = m_Context.Posts.Where(q => q.ID == post.ID).FirstOrDefault();
+
+                if (m_Actual != null)
+                {
+                    m_Actual.Caption = post.Caption;
+                    m_Actual.Data = post.Data;
+                    m_Actual.CategoryID = post.CategoryID;
+
+                    m_Context.SaveChanges();
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+        #endregion
+        #region User Crud Operations
         [WebMethod]
         public bool Login(string username, string password)
         {
@@ -184,7 +257,7 @@ namespace TeknoBlog
                     return false;
             }
         }
-
+        #endregion
         #region Category Crud Operations
         [WebMethod]
         public List<Category> GetCategories()

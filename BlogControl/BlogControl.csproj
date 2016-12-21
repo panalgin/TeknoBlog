@@ -113,6 +113,12 @@
     <Compile Include="Manage_Comments_Mdi.Designer.cs">
       <DependentUpon>Manage_Comments_Mdi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage_Posts_Mdi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Posts_Mdi.Designer.cs">
+      <DependentUpon>Manage_Posts_Mdi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage_Users_Mdi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     <EmbeddedResource Include="Manage_Comments_Mdi.resx">
       <DependentUpon>Manage_Comments_Mdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Posts_Mdi.resx">
+      <DependentUpon>Manage_Posts_Mdi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage_Users_Mdi.resx">
       <DependentUpon>Manage_Users_Mdi.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +189,9 @@
     <None Include="Service References\ApiService\BlogControl.ApiService.AddCategoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.AddPostResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.AddUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -204,6 +216,9 @@
     <None Include="Service References\ApiService\BlogControl.ApiService.GetCommentsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.GetPostResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.GetPostsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -226,6 +241,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.UpdateCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.UpdatePostResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.UpdateUserResponse.datasource">
