@@ -66,6 +66,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,6 +110,12 @@
     </Compile>
     <Compile Include="Edit_Comment_Pop.Designer.cs">
       <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Post_Pop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Post_Pop.Designer.cs">
+      <DependentUpon>Edit_Post_Pop.cs</DependentUpon>
     </Compile>
     <Compile Include="Edit_User_Pop.cs">
       <SubType>Form</SubType>
@@ -162,6 +169,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <None Include="Resources\layout_content.png" />
+    <None Include="Resources\users_men_women.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\comment.png" />
+    <Content Include="View\js\insert.js" />
     <Content Include="View\js\tinymce\jquery.tinymce.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -428,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Comment_Pop.resx">
       <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Post_Pop.resx">
+      <DependentUpon>Edit_Post_Pop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_User_Pop.resx">
       <DependentUpon>Edit_User_Pop.cs</DependentUpon>

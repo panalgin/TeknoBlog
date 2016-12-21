@@ -29,7 +29,6 @@
                 editor.on('keyup', function (e) {
                     triggerMessage();
                 });
-
             },
             plugins: [
               'advlist autolink lists link image charmap print preview anchor',
@@ -40,5 +39,15 @@
         });
     </script>
     <textarea id="editor"></textarea>
+
+    <script type="text/javascript">
+        // and here's the trick (works everywhere)
+        function r(f) { /in/.test(document.readyState) ? setTimeout('r(' + f + ')', 9) : f() }
+        // use like
+        r(function () {
+            windowsApp.onReady();
+        });
+    </script>
 </body>
+
 </html>

@@ -16,6 +16,7 @@ namespace BlogControl.Custom
         public ToolStripEx()
         {
             this.Renderer = new ToolStripExProfessionalRenderer();
+            this.RenderMode = ToolStripRenderMode.Custom;
         }
     }
 
@@ -25,7 +26,7 @@ namespace BlogControl.Custom
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            //base.OnRenderToolStripBorder(e);
+            base.OnRenderToolStripBorder(e);
         }
     }
 

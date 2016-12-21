@@ -1,25 +1,29 @@
-﻿using System;
+﻿using BlogControl.ApiService;
+using CefSharp;
+using CefSharp.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
-using BlogControl.ApiService;
 
 namespace BlogControl
 {
-    public partial class Add_Post_Pop : Form
+    public partial class Edit_Post_Pop : Form
     {
+        public PostEx Post { get; set; }
+
         ChromiumWebBrowser m_Browser = null;
         private string EditorText = "";
 
-        public Add_Post_Pop()
+        public Edit_Post_Pop()
         {
             InitializeComponent();
 
@@ -31,9 +35,9 @@ namespace BlogControl
             this.panel1.Controls.Add(m_Browser);
         }
 
-        private void Add_Post_Mdi_Load(object sender, EventArgs e)
+        private void Edit_Post_Pop_Load(object sender, EventArgs e)
         {
-            using(ApiSoapClient m_Client = new ApiSoapClient())
+            using (ApiSoapClient m_Client = new ApiSoapClient())
             {
                 var m_Categories = m_Client.GetCategories().ToList();
 
@@ -46,7 +50,19 @@ namespace BlogControl
 
             JavaScriptCallback m_Callback = new JavaScriptCallback();
             m_Callback.Changed += Callback_Changed;
+            m_Callback.Ready += Callback_Ready;
             m_Browser.RegisterAsyncJsObject("windowsApp", m_Callback);
+
+            this.EditorText = this.Post.Data;
+            this.Caption_Box.Text = this.Post.Caption;
+            this.comboBox1.SelectedValue = this.Post.CategoryID;
+        }
+
+        private void Callback_Ready()
+        {
+            var m_Decoded = WebUtility.HtmlDecode(this.Post.Data);
+            var m_Injected = string.Format("tinyMCE.activeEditor.setContent(unescape(\"{0}\"));", HttpUtility.JavaScriptStringEncode(m_Decoded));
+            m_Browser.ExecuteScriptAsync(m_Injected);
         }
 
         private void Callback_Changed(string message)
@@ -60,21 +76,18 @@ namespace BlogControl
                 MessageBox.Show("En az 3 karakterden oluşan bir başlık girmelisiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                using(ApiSoapClient m_Client = new ApiSoapClient())
+                using (ApiSoapClient m_Client = new ApiSoapClient())
                 {
-                    PostEx m_Post = new PostEx();
-                    m_Post.AuthorID = Program.User.ID;
-                    m_Post.Caption = this.Caption_Box.Text;
-                    m_Post.CategoryID = Convert.ToInt32(this.comboBox1.SelectedValue.ToString());
-                    m_Post.CreatedAt = DateTime.Now;
-                    m_Post.Data = this.EditorText;
+                    this.Post.Caption = this.Caption_Box.Text;
+                    this.Post.CategoryID = Convert.ToInt32(this.comboBox1.SelectedValue.ToString());
+                    this.Post.Data = this.EditorText;
 
-                    var result = m_Client.AddPost(m_Post);
+                    var result = m_Client.UpdatePost(this.Post);
 
                     if (result == true)
                         this.Close();
                     else
-                        MessageBox.Show("İçerik eklenmeye çalışılırken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("İçerik düzenlenirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -82,7 +95,10 @@ namespace BlogControl
         private class JavaScriptCallback
         {
             public delegate void OnChanged(string message);
+            public delegate void OnReady();
+
             public event OnChanged Changed;
+            public event OnReady Ready;
 
             public string Data { get; set; }
             public void getMessage(string message)
@@ -90,14 +106,24 @@ namespace BlogControl
                 InvokeChanged(message);
             }
 
+            public void onReady()
+            {
+                InvokeReady();
+            }
+
             public JavaScriptCallback()
-            { 
+            {
 
             }
 
             private void InvokeChanged(string message)
             {
                 Changed?.Invoke(message);
+            }
+
+            private void InvokeReady()
+            {
+                Ready?.Invoke();
             }
         }
 

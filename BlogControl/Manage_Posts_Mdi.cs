@@ -58,5 +58,42 @@ namespace BlogControl
 
             this.PopulateList();
         }
+
+        private void Edit_Button_Click(object sender, EventArgs e)
+        {
+            if (this.Posts_List.SelectedItems.Count > 0)
+            {
+                int m_PostID = Convert.ToInt32(this.Posts_List.SelectedItems[0].Tag);
+
+                using (ApiSoapClient m_Client = new ApiSoapClient())
+                {
+                    var m_Post = m_Client.GetPost(m_PostID);
+
+                    if (m_Post != null)
+                    {
+                        Edit_Post_Pop m_Pop = new Edit_Post_Pop();
+                        m_Pop.Post = m_Post;
+                        m_Pop.ShowDialog();
+
+                        PopulateList();
+                    }
+                }
+
+            }
+        }
+
+        private void Posts_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.Posts_List.SelectedItems.Count > 0)
+            {
+                this.Edit_Button.Enabled = true;
+                this.Delete_Button.Enabled = true;
+            }
+            else
+            {
+                this.Delete_Button.Enabled = false;
+                this.Edit_Button.Enabled = false;
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace BlogControl
 
         private void EventSink_Login(LoginEventArgs args)
         {
-            this.Tool_Strip.Enabled = true;
+            Tool_Strip.Enabled = true;
             Program.User = args.User;
         }
 

@@ -60,6 +60,7 @@
             this.Edit_Button.TabIndex = 1;
             this.Edit_Button.Text = "Düzenle";
             this.Edit_Button.UseVisualStyleBackColor = true;
+            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
             // 
             // Posts_List
             // 
@@ -81,6 +82,7 @@
             this.Posts_List.TabIndex = 8;
             this.Posts_List.UseCompatibleStateImageBehavior = false;
             this.Posts_List.View = System.Windows.Forms.View.Details;
+            this.Posts_List.SelectedIndexChanged += new System.EventHandler(this.Posts_List_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
