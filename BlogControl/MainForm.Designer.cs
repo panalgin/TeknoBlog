@@ -29,32 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.Tool_Strip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.Categories_Button = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.Comments_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.Tool_Strip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // Tool_Strip
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.CanOverflow = false;
-            this.toolStrip1.Enabled = false;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tool_Strip.AutoSize = false;
+            this.Tool_Strip.CanOverflow = false;
+            this.Tool_Strip.Enabled = false;
+            this.Tool_Strip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.Tool_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton4,
             this.Categories_Button,
-            this.toolStripButton2,
+            this.Comments_Button,
             this.toolStripButton1});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(897, 36);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.Tool_Strip.Location = new System.Drawing.Point(0, 0);
+            this.Tool_Strip.Name = "Tool_Strip";
+            this.Tool_Strip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.Tool_Strip.Size = new System.Drawing.Size(897, 36);
+            this.Tool_Strip.TabIndex = 0;
+            this.Tool_Strip.Text = "toolStrip1";
             // 
             // toolStripButton4
             // 
@@ -77,15 +76,16 @@
             this.Categories_Button.Text = "Kategoriler";
             this.Categories_Button.Click += new System.EventHandler(this.Categories_Button_Click);
             // 
-            // toolStripButton2
+            // Comments_Button
             // 
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(126, 32);
-            this.toolStripButton2.Text = "Yorumlar";
+            this.Comments_Button.AutoSize = false;
+            this.Comments_Button.Image = ((System.Drawing.Image)(resources.GetObject("Comments_Button.Image")));
+            this.Comments_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Comments_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Comments_Button.Name = "Comments_Button";
+            this.Comments_Button.Size = new System.Drawing.Size(126, 32);
+            this.Comments_Button.Text = "Yorumlar";
+            this.Comments_Button.Click += new System.EventHandler(this.Comments_Button_Click);
             // 
             // toolStripButton1
             // 
@@ -102,24 +102,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 596);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.Tool_Strip);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BlogControl";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.Tool_Strip.ResumeLayout(false);
+            this.Tool_Strip.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip Tool_Strip;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton Categories_Button;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton Comments_Button;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

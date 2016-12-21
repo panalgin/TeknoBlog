@@ -31,13 +31,20 @@ namespace BlogControl
 
         private void EventSink_Login(LoginEventArgs args)
         {
-            this.toolStrip1.Enabled = true;
+            this.Tool_Strip.Enabled = true;
             Program.User = args.User;
         }
 
         private void Categories_Button_Click(object sender, EventArgs e)
         {
             Manage_Categories_Mdi m_Mdi = new Manage_Categories_Mdi();
+            m_Mdi.MdiParent = this;
+            m_Mdi.Show();
+        }
+
+        private void Comments_Button_Click(object sender, EventArgs e)
+        {
+            Manage_Comments_Mdi m_Mdi = new Manage_Comments_Mdi();
             m_Mdi.MdiParent = this;
             m_Mdi.Show();
         }

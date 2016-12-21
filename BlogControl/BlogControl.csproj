@@ -65,6 +65,12 @@
     <Compile Include="Edit_Category_Pop.Designer.cs">
       <DependentUpon>Edit_Category_Pop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Comment_Pop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Comment_Pop.Designer.cs">
+      <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events\EventHandlers.cs" />
     <Compile Include="Events\EventSink.cs" />
     <Compile Include="Events\LoginEventArgs.cs" />
@@ -86,6 +92,12 @@
     <Compile Include="Manage_Categories_Mdi.Designer.cs">
       <DependentUpon>Manage_Categories_Mdi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage_Comments_Mdi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Comments_Mdi.Designer.cs">
+      <DependentUpon>Manage_Comments_Mdi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ApiService\Reference.cs">
@@ -99,6 +111,9 @@
     <EmbeddedResource Include="Edit_Category_Pop.resx">
       <DependentUpon>Edit_Category_Pop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Comment_Pop.resx">
+      <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Mdi.resx">
       <DependentUpon>Login_Mdi.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_Categories_Mdi.resx">
       <DependentUpon>Manage_Categories_Mdi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Comments_Mdi.resx">
+      <DependentUpon>Manage_Comments_Mdi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
