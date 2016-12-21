@@ -50,5 +50,13 @@ namespace BlogControl
 
             Posts_List.EndUpdate();
         }
+
+        private void Add_Button_Click(object sender, EventArgs e)
+        {
+            Add_Post_Pop m_Pop = new Add_Post_Pop();
+            m_Pop.ShowDialog();
+
+            this.PopulateList();
+        }
     }
 }

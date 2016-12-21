@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function triggerMessage() {
+            var result = tinyMCE.activeEditor.getContent({ format: 'raw' });
+            windowsApp.getMessage(result);
+        }
+    </script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea',
+            content_css: 'css/main.css',
+            language: 'tr_TR',
+            height: 500,
+            menubar: false,
+            init_instance_callback: function (editor) {
+                editor.on('Change', function (e) {
+                    triggerMessage();
+                });
+
+                editor.on('keyup', function (e) {
+                    triggerMessage();
+                });
+
+            },
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+        });
+    </script>
+    <textarea id="editor"></textarea>
+</body>
+</html>

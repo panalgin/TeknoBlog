@@ -120,6 +120,7 @@
             this.Add_Button.TabIndex = 0;
             this.Add_Button.Text = "Yeni";
             this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // Manage_Posts_Mdi
             // 
