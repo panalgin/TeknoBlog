@@ -234,7 +234,7 @@
     <None Include="Service References\ApiService\BlogControl.ApiService.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ApiService\BlogControl.ApiService.Post.datasource">
+    <None Include="Service References\ApiService\BlogControl.ApiService.PostEx.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.UpdateCategoryResponse.datasource">

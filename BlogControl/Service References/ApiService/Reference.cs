@@ -15,9 +15,9 @@ namespace BlogControl.ApiService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Post", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PostEx", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
-    public partial class Post : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PostEx : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -28,17 +28,20 @@ namespace BlogControl.ApiService {
         private string AuthorIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CaptionField;
+        
+        private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DataField;
         
-        private System.DateTime CreatedAtField;
-        
         private int CategoryIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private BlogControl.ApiService.Category CategoryField;
+        private string CategoryNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -77,6 +80,19 @@ namespace BlogControl.ApiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string AuthorName {
+            get {
+                return this.AuthorNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorNameField, value) != true)) {
+                    this.AuthorNameField = value;
+                    this.RaisePropertyChanged("AuthorName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string Caption {
             get {
                 return this.CaptionField;
@@ -85,19 +101,6 @@ namespace BlogControl.ApiService {
                 if ((object.ReferenceEquals(this.CaptionField, value) != true)) {
                     this.CaptionField = value;
                     this.RaisePropertyChanged("Caption");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string Data {
-            get {
-                return this.DataField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DataField, value) != true)) {
-                    this.DataField = value;
-                    this.RaisePropertyChanged("Data");
                 }
             }
         }
@@ -115,7 +118,20 @@ namespace BlogControl.ApiService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public int CategoryID {
             get {
                 return this.CategoryIDField;
@@ -128,75 +144,15 @@ namespace BlogControl.ApiService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public BlogControl.ApiService.Category Category {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string CategoryName {
             get {
-                return this.CategoryField;
+                return this.CategoryNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
                 }
             }
         }
@@ -305,6 +261,66 @@ namespace BlogControl.ApiService {
                 if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -626,12 +642,12 @@ namespace BlogControl.ApiService {
     public partial class GetPostsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public BlogControl.ApiService.Post[] GetPostsResult;
+        public BlogControl.ApiService.PostEx[] GetPostsResult;
         
         public GetPostsResponseBody() {
         }
         
-        public GetPostsResponseBody(BlogControl.ApiService.Post[] GetPostsResult) {
+        public GetPostsResponseBody(BlogControl.ApiService.PostEx[] GetPostsResult) {
             this.GetPostsResult = GetPostsResult;
         }
     }
@@ -694,12 +710,12 @@ namespace BlogControl.ApiService {
     public partial class GetPostResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public BlogControl.ApiService.Post GetPostResult;
+        public BlogControl.ApiService.PostEx GetPostResult;
         
         public GetPostResponseBody() {
         }
         
-        public GetPostResponseBody(BlogControl.ApiService.Post GetPostResult) {
+        public GetPostResponseBody(BlogControl.ApiService.PostEx GetPostResult) {
             this.GetPostResult = GetPostResult;
         }
     }
@@ -728,12 +744,12 @@ namespace BlogControl.ApiService {
     public partial class AddPostRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public BlogControl.ApiService.Post post;
+        public BlogControl.ApiService.PostEx post;
         
         public AddPostRequestBody() {
         }
         
-        public AddPostRequestBody(BlogControl.ApiService.Post post) {
+        public AddPostRequestBody(BlogControl.ApiService.PostEx post) {
             this.post = post;
         }
     }
@@ -796,12 +812,12 @@ namespace BlogControl.ApiService {
     public partial class UpdatePostRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public BlogControl.ApiService.Post post;
+        public BlogControl.ApiService.PostEx post;
         
         public UpdatePostRequestBody() {
         }
         
-        public UpdatePostRequestBody(BlogControl.ApiService.Post post) {
+        public UpdatePostRequestBody(BlogControl.ApiService.PostEx post) {
             this.post = post;
         }
     }
@@ -1807,7 +1823,7 @@ namespace BlogControl.ApiService {
             return base.Channel.GetPosts(request);
         }
         
-        public BlogControl.ApiService.Post[] GetPosts() {
+        public BlogControl.ApiService.PostEx[] GetPosts() {
             BlogControl.ApiService.GetPostsRequest inValue = new BlogControl.ApiService.GetPostsRequest();
             inValue.Body = new BlogControl.ApiService.GetPostsRequestBody();
             BlogControl.ApiService.GetPostsResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetPosts(inValue);
@@ -1830,7 +1846,7 @@ namespace BlogControl.ApiService {
             return base.Channel.GetPost(request);
         }
         
-        public BlogControl.ApiService.Post GetPost(int id) {
+        public BlogControl.ApiService.PostEx GetPost(int id) {
             BlogControl.ApiService.GetPostRequest inValue = new BlogControl.ApiService.GetPostRequest();
             inValue.Body = new BlogControl.ApiService.GetPostRequestBody();
             inValue.Body.id = id;
@@ -1855,7 +1871,7 @@ namespace BlogControl.ApiService {
             return base.Channel.AddPost(request);
         }
         
-        public bool AddPost(BlogControl.ApiService.Post post) {
+        public bool AddPost(BlogControl.ApiService.PostEx post) {
             BlogControl.ApiService.AddPostRequest inValue = new BlogControl.ApiService.AddPostRequest();
             inValue.Body = new BlogControl.ApiService.AddPostRequestBody();
             inValue.Body.post = post;
@@ -1868,7 +1884,7 @@ namespace BlogControl.ApiService {
             return base.Channel.AddPostAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlogControl.ApiService.AddPostResponse> AddPostAsync(BlogControl.ApiService.Post post) {
+        public System.Threading.Tasks.Task<BlogControl.ApiService.AddPostResponse> AddPostAsync(BlogControl.ApiService.PostEx post) {
             BlogControl.ApiService.AddPostRequest inValue = new BlogControl.ApiService.AddPostRequest();
             inValue.Body = new BlogControl.ApiService.AddPostRequestBody();
             inValue.Body.post = post;
@@ -1888,7 +1904,7 @@ namespace BlogControl.ApiService {
             return base.Channel.UpdatePost(request);
         }
         
-        public bool UpdatePost(BlogControl.ApiService.Post post) {
+        public bool UpdatePost(BlogControl.ApiService.PostEx post) {
             BlogControl.ApiService.UpdatePostRequest inValue = new BlogControl.ApiService.UpdatePostRequest();
             inValue.Body = new BlogControl.ApiService.UpdatePostRequestBody();
             inValue.Body.post = post;
@@ -1901,7 +1917,7 @@ namespace BlogControl.ApiService {
             return base.Channel.UpdatePostAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlogControl.ApiService.UpdatePostResponse> UpdatePostAsync(BlogControl.ApiService.Post post) {
+        public System.Threading.Tasks.Task<BlogControl.ApiService.UpdatePostResponse> UpdatePostAsync(BlogControl.ApiService.PostEx post) {
             BlogControl.ApiService.UpdatePostRequest inValue = new BlogControl.ApiService.UpdatePostRequest();
             inValue.Body = new BlogControl.ApiService.UpdatePostRequestBody();
             inValue.Body.post = post;

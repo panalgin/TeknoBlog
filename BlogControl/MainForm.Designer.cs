@@ -32,7 +32,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Tool_Strip = new BlogControl.Custom.ToolStripEx();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.Posts_Button = new System.Windows.Forms.ToolStripButton();
             this.Categories_Button = new System.Windows.Forms.ToolStripButton();
             this.Comments_Button = new System.Windows.Forms.ToolStripButton();
             this.Users_Button = new System.Windows.Forms.ToolStripButton();
@@ -50,7 +50,7 @@
             this.Tool_Strip.Enabled = false;
             this.Tool_Strip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.Tool_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
+            this.Posts_Button,
             this.Categories_Button,
             this.Comments_Button,
             this.Users_Button});
@@ -61,15 +61,16 @@
             this.Tool_Strip.TabIndex = 0;
             this.Tool_Strip.Text = "toolStrip1";
             // 
-            // toolStripButton4
+            // Posts_Button
             // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(126, 32);
-            this.toolStripButton4.Text = "İçerik Yönetimi";
+            this.Posts_Button.AutoSize = false;
+            this.Posts_Button.Image = ((System.Drawing.Image)(resources.GetObject("Posts_Button.Image")));
+            this.Posts_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Posts_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Posts_Button.Name = "Posts_Button";
+            this.Posts_Button.Size = new System.Drawing.Size(126, 32);
+            this.Posts_Button.Text = "İçerik Yönetimi";
+            this.Posts_Button.Click += new System.EventHandler(this.Posts_Button_Click);
             // 
             // Categories_Button
             // 
@@ -125,7 +126,7 @@
             // çıkışToolStripMenuItem
             // 
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
-            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.çıkışToolStripMenuItem.Text = "Çıkış";
             this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
             // 
@@ -154,7 +155,7 @@
         #endregion
 
         private ToolStripEx Tool_Strip;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton Posts_Button;
         private System.Windows.Forms.ToolStripButton Categories_Button;
         private System.Windows.Forms.ToolStripButton Comments_Button;
         private System.Windows.Forms.ToolStripButton Users_Button;

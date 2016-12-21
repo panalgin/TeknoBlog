@@ -22,41 +22,55 @@ namespace TeknoBlog
     {
         #region Post Crud Operations
         [WebMethod]
-        public List<Post> GetPosts()
+        public List<PostEx> GetPosts()
         {
-            List<Post> m_List = new List<Post>();
+            List<PostEx> m_List = new List<PostEx>();
 
             using(BlogEntities m_Context = new BlogEntities())
             {
-                m_Context.Configuration.ProxyCreationEnabled = false;
-                m_List = m_Context.Posts.ToList();
+                var m_Posts = m_Context.Posts.ToList();
+
+                m_Posts.All(delegate (Post post)
+                {
+                    PostEx m_PostEx = PostEx.CopyFrom(post, false);
+                    m_List.Add(m_PostEx);
+
+                    return true;
+                });
             }
 
             return m_List;
         }
 
         [WebMethod]
-        public Post GetPost(int id)
+        public PostEx GetPost(int id)
         {
-            Post m_Post = null;
+            PostEx m_PostEx = null;
 
             using (BlogEntities m_Context = new BlogEntities())
             {
-                m_Context.Configuration.ProxyCreationEnabled = false;
-                m_Post = m_Context.Posts.Where(q => q.ID == id).FirstOrDefault();
+                var m_Post  = m_Context.Posts.Where(q => q.ID == id).FirstOrDefault();
+                m_PostEx = PostEx.CopyFrom(m_Post);
             }
 
-            return m_Post;
+            return m_PostEx;
         }
 
         [WebMethod]
-        public bool AddPost(Post post)
+        public bool AddPost(PostEx post)
         {
             using(BlogEntities m_Context = new BlogEntities())
             {
                 if (post != null)
                 {
-                    m_Context.Posts.Add(post);
+                    Post m_Post = new Post();
+                    m_Post.AuthorID = post.AuthorID;
+                    m_Post.Caption = post.Caption;
+                    m_Post.CategoryID = post.CategoryID;
+                    m_Post.CreatedAt = post.CreatedAt;
+                    m_Post.Data = post.Data;
+
+                    m_Context.Posts.Add(m_Post);
                     m_Context.SaveChanges();
 
                     return true;
@@ -86,7 +100,7 @@ namespace TeknoBlog
         }
 
         [WebMethod]
-        public bool UpdatePost(Post post)
+        public bool UpdatePost(PostEx post)
         {
             using(BlogEntities m_Context = new BlogEntities())
             {

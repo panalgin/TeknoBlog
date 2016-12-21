@@ -56,6 +56,14 @@ namespace BlogControl
             m_Mdi.Show();
         }
 
+        private void Posts_Button_Click(object sender, EventArgs e)
+        {
+            Manage_Posts_Mdi m_Mdi = new Manage_Posts_Mdi();
+            m_Mdi.MdiParent = this;
+            m_Mdi.WindowState = FormWindowState.Maximized;
+            m_Mdi.Show();
+        }
+
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
