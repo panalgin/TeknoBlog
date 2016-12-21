@@ -25,11 +25,11 @@ namespace BlogControl
 
             using (ApiSoapClient m_Client = new ApiSoapClient())
             {
-                var result = m_Client.Login(this.Email_Box.Text, this.Password_Box.Text);
+                var result = m_Client.Login(this.Username_Box.Text, this.Password_Box.Text);
 
                 if (result == true)
                 {
-                    UserEx m_User = m_Client.GetUser(this.Email_Box.Text);
+                    UserEx m_User = m_Client.GetUserByUsername(this.Username_Box.Text);
 
                     if (m_User != null)
                     {
@@ -45,7 +45,7 @@ namespace BlogControl
 
         private void Login_Mdi_Load(object sender, EventArgs e)
         {
-            this.Email_Box.Focus();
+            this.Username_Box.Focus();
         }
 
         private void Email_Box_KeyDown(object sender, KeyEventArgs e)

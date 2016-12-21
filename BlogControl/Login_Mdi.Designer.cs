@@ -31,7 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Password_Box = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Email_Box = new System.Windows.Forms.TextBox();
+            this.Username_Box = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Login_Button = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -71,21 +71,21 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.Email_Box);
+            this.panel1.Controls.Add(this.Username_Box);
             this.panel1.Location = new System.Drawing.Point(343, 153);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(172, 26);
             this.panel1.TabIndex = 0;
             // 
-            // Email_Box
+            // Username_Box
             // 
-            this.Email_Box.BackColor = System.Drawing.Color.White;
-            this.Email_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Email_Box.Location = new System.Drawing.Point(3, 6);
-            this.Email_Box.Name = "Email_Box";
-            this.Email_Box.Size = new System.Drawing.Size(164, 13);
-            this.Email_Box.TabIndex = 0;
-            this.Email_Box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Email_Box_KeyDown);
+            this.Username_Box.BackColor = System.Drawing.Color.White;
+            this.Username_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Username_Box.Location = new System.Drawing.Point(3, 6);
+            this.Username_Box.Name = "Username_Box";
+            this.Username_Box.Size = new System.Drawing.Size(164, 13);
+            this.Username_Box.TabIndex = 0;
+            this.Username_Box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Email_Box_KeyDown);
             // 
             // label1
             // 
@@ -143,11 +143,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Image = global::BlogControl.Properties.Resources.innerbg_login;
-            this.label2.Location = new System.Drawing.Point(295, 160);
+            this.label2.Location = new System.Drawing.Point(270, 160);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 24;
-            this.label2.Text = "E-Mail :";
+            this.label2.Text = "Kullanıcı Adı:";
             // 
             // pictureBox4
             // 
@@ -208,7 +208,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox Password_Box;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox Email_Box;
+        private System.Windows.Forms.TextBox Username_Box;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Login_Button;

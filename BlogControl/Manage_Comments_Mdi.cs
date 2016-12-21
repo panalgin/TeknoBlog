@@ -86,7 +86,6 @@ namespace BlogControl
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-
             if (this.Comments_List.SelectedItems.Count > 0)
             {
                 int m_CommentID = Convert.ToInt32(this.Comments_List.SelectedItems[0].Tag);

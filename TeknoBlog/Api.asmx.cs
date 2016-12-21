@@ -36,12 +36,12 @@ namespace TeknoBlog
         }
 
         [WebMethod]
-        public bool Login(string email, string password)
+        public bool Login(string username, string password)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-            var result = signinManager.PasswordSignIn(email, password, false, shouldLockout: false);
+            var result = signinManager.PasswordSignIn(username, password, false, shouldLockout: false);
 
             return result == SignInStatus.Success ? true : false;
         }
@@ -53,6 +53,24 @@ namespace TeknoBlog
             {
                 var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
                 var m_User = m_Manager.FindByEmail(email);
+
+                if (m_User != null)
+                {
+                    return UserEx.CopyFrom(m_User);
+                }
+                else
+                    return null;
+            }
+        }
+
+        [WebMethod]
+        public UserEx GetUserByUsername(string username)
+        {
+
+            using (ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                var m_User = m_Manager.FindByName(username);
 
                 if (m_User != null)
                 {
@@ -148,6 +166,11 @@ namespace TeknoBlog
                     {
                         if (m_Manager.IsInRole(m_Actual.Id, "Administrator") == false)
                             m_Manager.AddToRole(m_Actual.Id, "Administrator");
+                    }
+                    else
+                    {
+                        if (m_Manager.IsInRole(m_Actual.Id, "Administrator"))
+                            m_Manager.RemoveFromRole(m_Actual.Id, "Administrator");
                     }
 
                     var result = m_Manager.Update(m_Actual);

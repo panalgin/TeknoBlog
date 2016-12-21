@@ -48,5 +48,67 @@ namespace BlogControl
 
             this.Users_List.EndUpdate();
         }
+
+        private void Users_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.Users_List.SelectedItems.Count > 0)
+            {
+                this.Edit_Button.Enabled = true;
+                this.Delete_Button.Enabled = true;
+            }
+            else
+            {
+                this.Edit_Button.Enabled = false;
+                this.Delete_Button.Enabled = false;
+            }
+        }
+
+        private void Edit_Button_Click(object sender, EventArgs e)
+        {
+            if (this.Users_List.SelectedItems.Count > 0)
+            {
+                string m_Email = this.Users_List.SelectedItems[0].Tag.ToString();
+
+                using (ApiSoapClient m_Client = new ApiSoapClient())
+                {
+                    UserEx m_User = m_Client.GetUser(m_Email);
+
+                    if (m_User != null)
+                    {
+                        Edit_User_Pop m_Pop = new Edit_User_Pop();
+                        m_Pop.User = m_User;
+                        m_Pop.ShowDialog();
+
+                        this.PopulateList();
+                    }
+                }
+            }
+        }
+
+        private void Delete_Button_Click(object sender, EventArgs e)
+        {
+            if (this.Users_List.SelectedItems.Count > 0)
+            {
+                string m_Email = this.Users_List.SelectedItems[0].Tag.ToString();
+
+                if (MessageBox.Show(string.Format("{0} email adresli üye silinecek, onaylıyor musunuz?", m_Email), "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (ApiSoapClient m_Client = new ApiSoapClient())
+                    {
+                        var result = m_Client.DeleteUser(m_Email);
+                    }
+
+                    this.PopulateList();
+                }
+            }
+        }
+
+        private void Add_Button_Click(object sender, EventArgs e)
+        {
+            Add_User_Pop m_Pop = new Add_User_Pop();
+            m_Pop.ShowDialog();
+
+            this.PopulateList();
+        }
     }
 }

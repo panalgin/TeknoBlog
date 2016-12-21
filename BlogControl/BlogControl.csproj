@@ -59,6 +59,12 @@
     <Compile Include="Add_Category_Pop.Designer.cs">
       <DependentUpon>Add_Category_Pop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_User_Pop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_User_Pop.Designer.cs">
+      <DependentUpon>Add_User_Pop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom\ToolStripEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     </Compile>
     <Compile Include="Edit_Comment_Pop.Designer.cs">
       <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_User_Pop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_User_Pop.Designer.cs">
+      <DependentUpon>Edit_User_Pop.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\EventHandlers.cs" />
     <Compile Include="Events\EventSink.cs" />
@@ -117,11 +129,17 @@
     <EmbeddedResource Include="Add_Category_Pop.resx">
       <DependentUpon>Add_Category_Pop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_User_Pop.resx">
+      <DependentUpon>Add_User_Pop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit_Category_Pop.resx">
       <DependentUpon>Edit_Category_Pop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Comment_Pop.resx">
       <DependentUpon>Edit_Comment_Pop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_User_Pop.resx">
+      <DependentUpon>Edit_User_Pop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Mdi.resx">
       <DependentUpon>Login_Mdi.cs</DependentUpon>
@@ -187,6 +205,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.GetPostsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ApiService\BlogControl.ApiService.GetUserByUsernameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiService\BlogControl.ApiService.GetUserResponse.datasource">

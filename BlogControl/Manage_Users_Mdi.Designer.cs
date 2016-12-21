@@ -47,6 +47,7 @@
             this.Delete_Button.TabIndex = 3;
             this.Delete_Button.Text = "Sil";
             this.Delete_Button.UseVisualStyleBackColor = true;
+            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
             // 
             // Edit_Button
             // 
@@ -58,6 +59,7 @@
             this.Edit_Button.TabIndex = 2;
             this.Edit_Button.Text = "Düzenle";
             this.Edit_Button.UseVisualStyleBackColor = true;
+            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
             // 
             // Add_Button
             // 
@@ -68,6 +70,7 @@
             this.Add_Button.TabIndex = 1;
             this.Add_Button.Text = "Yeni";
             this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // Users_List
             // 
@@ -87,6 +90,7 @@
             this.Users_List.TabIndex = 0;
             this.Users_List.UseCompatibleStateImageBehavior = false;
             this.Users_List.View = System.Windows.Forms.View.Details;
+            this.Users_List.SelectedIndexChanged += new System.EventHandler(this.Users_List_SelectedIndexChanged);
             // 
             // columnHeader2
             // 

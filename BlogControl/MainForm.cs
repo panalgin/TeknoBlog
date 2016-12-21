@@ -55,5 +55,10 @@ namespace BlogControl
             m_Mdi.MdiParent = this;
             m_Mdi.Show();
         }
+
+        private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -437,7 +437,7 @@ namespace BlogControl.ApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPosts", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.GetPostsResponse> GetPostsAsync(BlogControl.ApiService.GetPostsRequest request);
         
-        // CODEGEN: Generating message contract since element name email from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name username from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         BlogControl.ApiService.LoginResponse Login(BlogControl.ApiService.LoginRequest request);
         
@@ -450,6 +450,13 @@ namespace BlogControl.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUser", ReplyAction="*")]
         System.Threading.Tasks.Task<BlogControl.ApiService.GetUserResponse> GetUserAsync(BlogControl.ApiService.GetUserRequest request);
+        
+        // CODEGEN: Generating message contract since element name username from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserByUsername", ReplyAction="*")]
+        BlogControl.ApiService.GetUserByUsernameResponse GetUserByUsername(BlogControl.ApiService.GetUserByUsernameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserByUsername", ReplyAction="*")]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetUserByUsernameResponse> GetUserByUsernameAsync(BlogControl.ApiService.GetUserByUsernameRequest request);
         
         // CODEGEN: Generating message contract since element name GetUsersResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUsers", ReplyAction="*")]
@@ -626,7 +633,7 @@ namespace BlogControl.ApiService {
     public partial class LoginRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string email;
+        public string username;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string password;
@@ -634,8 +641,8 @@ namespace BlogControl.ApiService {
         public LoginRequestBody() {
         }
         
-        public LoginRequestBody(string email, string password) {
-            this.email = email;
+        public LoginRequestBody(string username, string password) {
+            this.username = username;
             this.password = password;
         }
     }
@@ -739,6 +746,74 @@ namespace BlogControl.ApiService {
         
         public GetUserResponseBody(BlogControl.ApiService.UserEx GetUserResult) {
             this.GetUserResult = GetUserResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetUserByUsernameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUserByUsername", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetUserByUsernameRequestBody Body;
+        
+        public GetUserByUsernameRequest() {
+        }
+        
+        public GetUserByUsernameRequest(BlogControl.ApiService.GetUserByUsernameRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetUserByUsernameRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string username;
+        
+        public GetUserByUsernameRequestBody() {
+        }
+        
+        public GetUserByUsernameRequestBody(string username) {
+            this.username = username;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetUserByUsernameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUserByUsernameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public BlogControl.ApiService.GetUserByUsernameResponseBody Body;
+        
+        public GetUserByUsernameResponse() {
+        }
+        
+        public GetUserByUsernameResponse(BlogControl.ApiService.GetUserByUsernameResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetUserByUsernameResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public BlogControl.ApiService.UserEx GetUserByUsernameResult;
+        
+        public GetUserByUsernameResponseBody() {
+        }
+        
+        public GetUserByUsernameResponseBody(BlogControl.ApiService.UserEx GetUserByUsernameResult) {
+            this.GetUserByUsernameResult = GetUserByUsernameResult;
         }
     }
     
@@ -1524,10 +1599,10 @@ namespace BlogControl.ApiService {
             return base.Channel.Login(request);
         }
         
-        public bool Login(string email, string password) {
+        public bool Login(string username, string password) {
             BlogControl.ApiService.LoginRequest inValue = new BlogControl.ApiService.LoginRequest();
             inValue.Body = new BlogControl.ApiService.LoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.username = username;
             inValue.Body.password = password;
             BlogControl.ApiService.LoginResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).Login(inValue);
             return retVal.Body.LoginResult;
@@ -1538,10 +1613,10 @@ namespace BlogControl.ApiService {
             return base.Channel.LoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> LoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<BlogControl.ApiService.LoginResponse> LoginAsync(string username, string password) {
             BlogControl.ApiService.LoginRequest inValue = new BlogControl.ApiService.LoginRequest();
             inValue.Body = new BlogControl.ApiService.LoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.username = username;
             inValue.Body.password = password;
             return ((BlogControl.ApiService.ApiSoap)(this)).LoginAsync(inValue);
         }
@@ -1569,6 +1644,31 @@ namespace BlogControl.ApiService {
             inValue.Body = new BlogControl.ApiService.GetUserRequestBody();
             inValue.Body.email = email;
             return ((BlogControl.ApiService.ApiSoap)(this)).GetUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        BlogControl.ApiService.GetUserByUsernameResponse BlogControl.ApiService.ApiSoap.GetUserByUsername(BlogControl.ApiService.GetUserByUsernameRequest request) {
+            return base.Channel.GetUserByUsername(request);
+        }
+        
+        public BlogControl.ApiService.UserEx GetUserByUsername(string username) {
+            BlogControl.ApiService.GetUserByUsernameRequest inValue = new BlogControl.ApiService.GetUserByUsernameRequest();
+            inValue.Body = new BlogControl.ApiService.GetUserByUsernameRequestBody();
+            inValue.Body.username = username;
+            BlogControl.ApiService.GetUserByUsernameResponse retVal = ((BlogControl.ApiService.ApiSoap)(this)).GetUserByUsername(inValue);
+            return retVal.Body.GetUserByUsernameResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<BlogControl.ApiService.GetUserByUsernameResponse> BlogControl.ApiService.ApiSoap.GetUserByUsernameAsync(BlogControl.ApiService.GetUserByUsernameRequest request) {
+            return base.Channel.GetUserByUsernameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<BlogControl.ApiService.GetUserByUsernameResponse> GetUserByUsernameAsync(string username) {
+            BlogControl.ApiService.GetUserByUsernameRequest inValue = new BlogControl.ApiService.GetUserByUsernameRequest();
+            inValue.Body = new BlogControl.ApiService.GetUserByUsernameRequestBody();
+            inValue.Body.username = username;
+            return ((BlogControl.ApiService.ApiSoap)(this)).GetUserByUsernameAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

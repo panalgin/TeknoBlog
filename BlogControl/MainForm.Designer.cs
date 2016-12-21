@@ -36,7 +36,11 @@
             this.Categories_Button = new System.Windows.Forms.ToolStripButton();
             this.Comments_Button = new System.Windows.Forms.ToolStripButton();
             this.Users_Button = new System.Windows.Forms.ToolStripButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dosyaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool_Strip.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tool_Strip
@@ -51,7 +55,7 @@
             this.Comments_Button,
             this.Users_Button});
             this.Tool_Strip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.Tool_Strip.Location = new System.Drawing.Point(0, 0);
+            this.Tool_Strip.Location = new System.Drawing.Point(0, 24);
             this.Tool_Strip.Name = "Tool_Strip";
             this.Tool_Strip.Size = new System.Drawing.Size(897, 38);
             this.Tool_Strip.TabIndex = 0;
@@ -100,20 +104,50 @@
             this.Users_Button.Text = "Kullanıcılar";
             this.Users_Button.Click += new System.EventHandler(this.Users_Button_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dosyaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(897, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dosyaToolStripMenuItem
+            // 
+            this.dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.çıkışToolStripMenuItem});
+            this.dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
+            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.dosyaToolStripMenuItem.Text = "Dosya";
+            // 
+            // çıkışToolStripMenuItem
+            // 
+            this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.çıkışToolStripMenuItem.Text = "Çıkış";
+            this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 596);
             this.Controls.Add(this.Tool_Strip);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BlogControl";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Tool_Strip.ResumeLayout(false);
             this.Tool_Strip.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,6 +158,9 @@
         private System.Windows.Forms.ToolStripButton Categories_Button;
         private System.Windows.Forms.ToolStripButton Comments_Button;
         private System.Windows.Forms.ToolStripButton Users_Button;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dosyaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
     }
 }
 
