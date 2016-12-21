@@ -63,6 +63,105 @@ namespace TeknoBlog
             }
         }
 
+        [WebMethod]
+        public List<UserEx> GetUsers()
+        {
+            List<UserEx> m_List = new List<UserEx>();
+
+            using(ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                var m_Users = m_Manager.Users.ToList();
+
+                m_Users.All(delegate (ApplicationUser user)
+                {
+                    UserEx m_User = UserEx.CopyFrom(user);
+                    m_List.Add(m_User);
+
+                    return true;
+                });
+            }
+
+            return m_List;
+        }
+
+        [WebMethod]
+        public bool DeleteUser(string email)
+        {
+            using(ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                ApplicationUser m_Actual = m_Manager.FindByEmail(email);
+
+                if (m_Actual != null)
+                {
+                    m_Manager.Delete(m_Actual);
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool AddUser(UserEx ex)
+        {
+            using(ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+
+                ApplicationUser m_User = new ApplicationUser();
+                m_User.Email = ex.Email;
+                m_User.UserName = ex.Email;
+
+                var result = m_Manager.Create(m_User, ex.Password);
+
+                if (result.Succeeded)
+                {
+                    if (ex.IsAdministrator)
+                    {
+                        if (m_Manager.IsInRole(m_User.Id, "Administrator") == false)
+                            m_Manager.AddToRole(m_User.Id, "Administrator");
+                    }
+
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+        [WebMethod]
+        public bool UpdateUser(UserEx ex)
+        {
+            using(ApplicationDbContext m_Context = new ApplicationDbContext())
+            {
+                var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                ApplicationUser m_Actual = m_Manager.FindByEmail(ex.Email);
+
+                if (m_Actual != null)
+                {
+                    m_Actual.UserName = ex.Username;
+                    m_Actual.Email = ex.Email;
+
+                    if (ex.IsAdministrator)
+                    {
+                        if (m_Manager.IsInRole(m_Actual.Id, "Administrator") == false)
+                            m_Manager.AddToRole(m_Actual.Id, "Administrator");
+                    }
+
+                    var result = m_Manager.Update(m_Actual);
+
+                    if (result.Succeeded)
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
+        }
+
         #region Category Crud Operations
         [WebMethod]
         public List<Category> GetCategories()

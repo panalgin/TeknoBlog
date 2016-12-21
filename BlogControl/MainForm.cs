@@ -48,5 +48,12 @@ namespace BlogControl
             m_Mdi.MdiParent = this;
             m_Mdi.Show();
         }
+
+        private void Users_Button_Click(object sender, EventArgs e)
+        {
+            Manage_Users_Mdi m_Mdi = new Manage_Users_Mdi();
+            m_Mdi.MdiParent = this;
+            m_Mdi.Show();
+        }
     }
 }

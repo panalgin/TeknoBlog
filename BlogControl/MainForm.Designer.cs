@@ -1,5 +1,7 @@
 ﻿namespace BlogControl
 {
+    using Custom;
+
     partial class MainForm
     {
         /// <summary>
@@ -29,11 +31,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.Tool_Strip = new System.Windows.Forms.ToolStrip();
+            this.Tool_Strip = new BlogControl.Custom.ToolStripEx();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.Categories_Button = new System.Windows.Forms.ToolStripButton();
             this.Comments_Button = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Users_Button = new System.Windows.Forms.ToolStripButton();
             this.Tool_Strip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,11 +49,11 @@
             this.toolStripButton4,
             this.Categories_Button,
             this.Comments_Button,
-            this.toolStripButton1});
+            this.Users_Button});
+            this.Tool_Strip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.Tool_Strip.Location = new System.Drawing.Point(0, 0);
             this.Tool_Strip.Name = "Tool_Strip";
-            this.Tool_Strip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.Tool_Strip.Size = new System.Drawing.Size(897, 36);
+            this.Tool_Strip.Size = new System.Drawing.Size(897, 38);
             this.Tool_Strip.TabIndex = 0;
             this.Tool_Strip.Text = "toolStrip1";
             // 
@@ -87,15 +89,16 @@
             this.Comments_Button.Text = "Yorumlar";
             this.Comments_Button.Click += new System.EventHandler(this.Comments_Button_Click);
             // 
-            // toolStripButton1
+            // Users_Button
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(126, 32);
-            this.toolStripButton1.Text = "Kullanıcılar";
+            this.Users_Button.AutoSize = false;
+            this.Users_Button.Image = ((System.Drawing.Image)(resources.GetObject("Users_Button.Image")));
+            this.Users_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Users_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Users_Button.Name = "Users_Button";
+            this.Users_Button.Size = new System.Drawing.Size(126, 32);
+            this.Users_Button.Text = "Kullanıcılar";
+            this.Users_Button.Click += new System.EventHandler(this.Users_Button_Click);
             // 
             // MainForm
             // 
@@ -116,11 +119,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip Tool_Strip;
+        private ToolStripEx Tool_Strip;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton Categories_Button;
         private System.Windows.Forms.ToolStripButton Comments_Button;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton Users_Button;
     }
 }
 

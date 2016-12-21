@@ -32,7 +32,6 @@ namespace TeknoBlog.Models
 
                 if (m_Author != null)
                     m_CommentEx.AuthorName = m_Author.UserName;
-
             }
 
             return m_CommentEx;

@@ -13,6 +13,7 @@ namespace TeknoBlog.Models
         public string Email { get; set; }
         public string Username { get; set; }
         public bool IsAdministrator { get; set; }
+        public string Password { get; set; }
 
         public static UserEx CopyFrom(ApplicationUser user)
         {
