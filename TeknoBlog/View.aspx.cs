@@ -21,7 +21,7 @@ namespace TeknoBlog
             {
                 int m_ID = Convert.ToInt32(m_Query.Get("ID"));
 
-                using(BlogEntities m_Context = new BlogEntities())
+                using (BlogEntities m_Context = new BlogEntities())
                 {
                     ApplicationDbContext m_AspnetContext = new ApplicationDbContext();
                     var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_AspnetContext));
@@ -65,6 +65,15 @@ namespace TeknoBlog
                             return true;
                         });
                     }
+
+                    var m_Categories = m_Context.Categories.ToList();
+
+                    m_Categories.All(delegate (Category m_Category)
+                    {
+                        this.cat_links.InnerHtml += string.Format("<li><a href=\"Category?ID={0}\">{1}</a></li>", m_Category.ID, m_Category.Name);
+
+                        return true;
+                    });
                 }
             }
         }

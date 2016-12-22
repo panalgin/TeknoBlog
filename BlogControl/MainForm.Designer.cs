@@ -70,6 +70,7 @@
             // Tool_Strip
             // 
             this.Tool_Strip.AutoSize = false;
+            this.Tool_Strip.Enabled = false;
             this.Tool_Strip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.Tool_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Posts_Button,

@@ -18,9 +18,6 @@ namespace TeknoBlog
         {
             using(BlogEntities m_Context = new BlogEntities())
             {
-                
-
-                
                 int m_Index = 0;
 
                 ApplicationDbContext m_AspnetContext = new ApplicationDbContext();
@@ -30,6 +27,7 @@ namespace TeknoBlog
 
                 m_Categories.All(delegate (Category m_Category)
                 {
+                    this.cat_links.InnerHtml += string.Format("<li><a href=\"Category?id={0}\">{1}</a></li>", m_Category.ID, m_Category.Name);
                     this.ConHold.InnerHtml += string.Format("<div class=\"\"><h2>{0}</h2></div>", m_Category.Name);
                     this.ConHold.InnerHtml += "<div class=\"row\">";
 

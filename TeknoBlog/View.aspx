@@ -1,5 +1,16 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="TeknoBlog.View" %>
 
+<asp:Content ID="NavBody" ContentPlaceHolderID="NavContent" runat="server">
+    <header id="ust">
+        <div class="alt">
+            <div class="container">
+                <ul class="list-inline ustmenu" id="cat_links" runat="server">
+                </ul>
+            </div>
+        </div>
+    </header>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <h1 id="Caption" runat="server"></h1>

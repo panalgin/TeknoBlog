@@ -210,6 +210,7 @@
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Users.aspx" />
     <Content Include="Api.asmx" />
+    <Content Include="Category.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="View.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -691,6 +692,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

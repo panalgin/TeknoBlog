@@ -162,3 +162,43 @@ input[type="select"] {
 	border-right-color:#ddd;
 	border-width:8px;
 }
+
+#ust .ust {
+	background: #3985ec;
+	padding: 20px 0;
+}
+
+#ust .ust .logo h1 {
+	margin: 0px;
+	font-size: 30px;
+}
+
+#ust .ust .logo h1 a {
+	color: #fff;
+}
+
+#ust .alt {
+	background: #101010;
+}
+
+#ust .alt .ustmenu {
+	margin: 0px;
+}
+
+#ust .alt .ustmenu li a {
+	color: #fff;
+	padding: 10px;
+	display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    min-width: 80px;
+    text-align: center;
+}
+
+#ust .alt .ustmenu li a:hover {
+	background: #ffd800;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #101010;
+    
+}
