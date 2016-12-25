@@ -17,14 +17,14 @@
                 <h4>Hesap ayarlarınızı değiştirin.</h4>
                 <hr />
                 <dl class="dl-horizontal">
-                    <dt>Password:</dt>
+                    <dt>Şifre:</dt>
                     <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
+                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Değiştir" Visible="False" ID="ChangePassword" runat="server" />
+                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Oluştur" Visible="False" ID="CreatePassword" runat="server" />
                     </dd>
-                    <dt>External Logins:</dt>
+                    <dt>Harici Girişler:</dt>
                     <dd><%: LoginsCount %>
-                        <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
+                        <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="Yönet" runat="server" />
 
                     </dd>
                     <%--

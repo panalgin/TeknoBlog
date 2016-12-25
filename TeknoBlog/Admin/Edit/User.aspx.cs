@@ -15,32 +15,34 @@ namespace TeknoBlog.Admin.Edit
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            NameValueCollection m_Query = Request.QueryString;
-
-            if (m_Query.HasKeys())
+            if (!this.IsPostBack)
             {
-                var m_ID = m_Query.Get("ID");
+                NameValueCollection m_Query = Request.QueryString;
 
-                using (ApplicationDbContext m_Context = new ApplicationDbContext())
+                if (m_Query.HasKeys())
                 {
-                    var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
+                    var m_ID = m_Query.Get("ID");
 
-                    ApplicationUser m_User = m_Manager.FindById(m_ID);
-
-                    if (m_User != null)
+                    using (ApplicationDbContext m_Context = new ApplicationDbContext())
                     {
-                        this.Email_Label.InnerText = m_User.Email;
+                        var m_Manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(m_Context));
 
-                        if (m_Manager.IsInRole(m_User.Id, "Administrator"))
+                        ApplicationUser m_User = m_Manager.FindById(m_ID);
+
+                        if (m_User != null)
                         {
-                            this.IsAdministrator_Check.Checked = true;
+                            this.Email_Label.InnerText = m_User.Email;
+
+                            if (m_Manager.IsInRole(m_User.Id, "Administrator"))
+                            {
+                                this.IsAdministrator_Check.Checked = true;
+                            }
                         }
                     }
                 }
-            }
 
-            if (!this.IsPostBack)
                 this.Info.Visible = false;
+            }
         }
 
         protected void Save_Button_Click(object sender, EventArgs e)
